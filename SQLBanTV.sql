@@ -1,5 +1,6 @@
-﻿
-USE [BanHang2]
+﻿create database BanHang
+go
+USE [BanHang]
 GO
 /****** Object:  Table [dbo].[Cart]    Script Date: 9/30/2021 8:58:50 AM ******/
 
@@ -98,119 +99,96 @@ CREATE TABLE [dbo].[CartItem](
 GO
 SET IDENTITY_INSERT [dbo].[Category] ON 
 
-INSERT [dbo].[Category] ([CategoryID], [CategoryName], [icon]) VALUES (1, N'Quần Áo Nam', N'<i class="fa fa-check-circle"></i>')
-INSERT [dbo].[Category] ([CategoryID], [CategoryName], [icon]) VALUES (2, N'Quần Áo Nữ', N'<i class="fa fa-check-circle"></i>')
-INSERT [dbo].[Category] ([CategoryID], [CategoryName], [icon]) VALUES (3, N'Quần Áo Trẻ Em', N'<i class="fa fa-check-circle"></i>')
-INSERT [dbo].[Category] ([CategoryID], [CategoryName], [icon]) VALUES (4, N'Quần Áo Quá Cỡ', N'<i class="fa fa-check-circle"></i>')
-INSERT [dbo].[Category] ([CategoryID], [CategoryName], [icon]) VALUES (5, N'Quần Áo Thể Thao', N'<i class="fa fa-check-circle"></i>')
-INSERT [dbo].[Category] ([CategoryID], [CategoryName], [icon]) VALUES (6, N'Phụ Kiện Thời Trang', N'<i class="fa fa-check-circle"></i>')
-INSERT [dbo].[Category] ([CategoryID], [CategoryName], [icon]) VALUES (7, N'Giầy Dép Thời Trang', N'<i class="fa fa-check-circle"></i>')
+INSERT [dbo].[Category] ([CategoryID], [CategoryName], [icon]) VALUES (1, N'LG', N'https://cdn.tgdd.vn/Products/Images/1942/236884/tv-led-lg-55up7550ptc-2.jpg')
+INSERT [dbo].[Category] ([CategoryID], [CategoryName], [icon]) VALUES (2, N'Panasonic', N'https://cdn.tgdd.vn/Products/Images/1942/73541/tivi-panasonic-th-40c400v-1-org-1.jpg')
+INSERT [dbo].[Category] ([CategoryID], [CategoryName], [icon]) VALUES (3, N'SamSung', N'https://cdn.tgdd.vn/Products/Images/1942/235792/led-4k-samsung-ua55au8100-2.jpg')
+INSERT [dbo].[Category] ([CategoryID], [CategoryName], [icon]) VALUES (4, N'TCL', N'https://cdn.tgdd.vn/Products/Images/1942/238554/led-tcl-l43s5200-1-org.jpg')
+INSERT [dbo].[Category] ([CategoryID], [CategoryName], [icon]) VALUES (5, N'Sony', N'https://cdn.tgdd.vn/Products/Images/1942/238884/led-sony-kd-55x85j-2.jpg')
+
 SET IDENTITY_INSERT [dbo].[Category] OFF
 INSERT [dbo].[Information] ([description], [address], [email], [phone], [fax]) VALUES (N'© 2021 All Right', N'Số 8, Thủ Đức, Hồ Chí Minh', N'abc@gmail.com', N'1900 0000', N'1900 0000')
 SET IDENTITY_INSERT [dbo].[Product] ON 
 
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (1, N'Quần nam thể thao ', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (1, N'Smart Tivi LG 4K 55 inch 55UP7550PTC ', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 649900, N'https://canary.contestimg.wish.com/api/webimage/6092b25f8dc7310066eea79c-large.jpg', 4, 1, 1,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (2, N'Bộ quần áo cá sấu', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 13900, N'https://cdn.tgdd.vn/Products/Images/1942/236884/tv-led-lg-55up7550ptc-2.jpg', 1, 1, 1,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (2, N'Smart Tivi LG 4K 43 inch 43UP7750PTB', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 274990, N'https://canary.contestimg.wish.com/api/webimage/60ee87ac5f321f54b6515aa5-large.jpg', 1, 1, 90,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (3, N'Quần áo nam mùa hè', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 10900, N'https://cdn.tgdd.vn/Products/Images/1942/236886/led-lg-43up7750ptb-2.jpg', 1, 1, 90,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (3, N'Smart Tivi LG 4K 55 inch 55UP7750PTB', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 206990, N'https://canary.contestimg.wish.com/api/webimage/5e0ef0cedcf6310abf715b17-5-large.jpg', 1, 1, 21,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (4, N'Áo nỉ nam Men2016hoodie', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 14700, N'https://cdn.tgdd.vn/Products/Images/1942/236888/1-1-org-org.jpg', 1, 1, 21,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (4, N'Smart Tivi NanoCell LG 4K 55 inch 55NANO75TPA', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 549900, N'https://canary.contestimg.wish.com/api/webimage/5ab073a32c3a2239348cba14-2-large.jpg', 1, 1, 50,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (5, N'Áo khoác Zipper Jumper Overcoat', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 174000, N'https://cdn.tgdd.vn/Products/Images/1942/236895/nanocell-lg-55nano75tpa-2.jpg', 1, 1, 50,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (5, N'Smart Tivi LG 4K 43 inch 43UP7550PTC', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 136990, N'https://canary.contestimg.wish.com/api/webimage/5b9a2d4a46bc64663cb5126f-large.jpg', 2, 2, 68,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (6, N'Áo rời in hoa Áo ngoài', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 9900, N'https://cdn.tgdd.vn/Products/Images/1942/236882/tv-led-lg-43up7550ptc-1-1.jpg', 1, 1, 68,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (6, N'Tivi Panasonic 40 inch TH-40C400V', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 119000, N'https://canary.contestimg.wish.com/api/webimage/5d8ed5cc560ac82404ee7dbe-5-large.jpg', 4, 2, 20,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (7, N'Áo khoác bông dày dặn', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 11900, N'https://cdn.tgdd.vn/Products/Images/1942/73541/tivi-panasonic-th-40c400v-1-org-1.jpg', 2, 2, 20,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (7, N'Tivi Panasonic 32 inch TH-32E400V', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 104990, N'https://canary.contestimg.wish.com/api/webimage/5dbbcc952c5a280a8e910528-large.jpg', 2, 2, 20,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (8, N'Áo khoác dài tay', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 13000, N'https://cdn.tgdd.vn/Products/Images/1942/146061/panasonic-th-32e400v-1-550x340.jpg', 2, 2, 20,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (8, N'Tivi Panasonic 49 inch TH-49E410V', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 170990, N'https://canary.contestimg.wish.com/api/webimage/5d7e10301260da7f6e052af6-2-large.jpg', 2, 2, 80,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (9, N'Quần harem mùa hè', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 1270, N'https://cdn.tgdd.vn/Products/Images/1942/101529/tivi-panasonic-th-49e410v-org-1-org.jpg', 2, 2, 80,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (9, N'Smart Tivi Panasonic 43 inch TH-43DS630V', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 171890, N'https://canary.contestimg.wish.com/api/webimage/5ecb237be281973f63794cd8-6-large.jpg', 1, 2, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (10, N'Áo khoác len Kẹo Màu', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 11000, N'https://cdn.tgdd.vn/Products/Images/1942/75566/tivi-panasonic-th-43ds630v-1-org-1.jpg', 2, 2, 100,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (10, N'Smart Tivi Panasonic 55 inch TH-55DS630V', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 189890, N'https://canary.contestimg.wish.com/api/webimage/5d661b006732a72595dc376d-3-large.jpg', 1, 2, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (11, N'Bộ áo siêu nhân', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 8700, N'https://cdn.tgdd.vn/Products/Images/1942/75571/tivi-panasonic-55-inch-th-55ds630v-2-org-1.jpg', 2, 2, 100,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (11, N'Smart Tivi Samsung 4K Crystal UHD 55 inch UA55AU8100', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 189999, N'https://canary.contestimg.wish.com/api/webimage/6145e0e14cac6c51e7e7b863-3-large.jpg', 3, 2, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (12, N'Bộ đồ mùa hè', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 15300, N'https://cdn.tgdd.vn/Products/Images/1942/235792/led-4k-samsung-ua55au8100-2.jpg', 3, 2, 100,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (12, N'Smart Tivi QLED 4K 55 inch Samsung QA55Q65A', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 169990, N'https://canary.contestimg.wish.com/api/webimage/5fc465efeddc46afcabffb3e-10-large.jpg', 3, 1, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (13, N'Dress for Girls Summer', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 17600, N'https://cdn.tgdd.vn/Products/Images/1942/235642/qled-4k-samsung-qa55q65a-2.jpg', 3, 1, 100,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (13, N'Smart Tivi QLED 4K 43 inch Samsung QA43Q65A', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 142890, N'https://canary.contestimg.wish.com/api/webimage/60e6a69fb1c252ccbb5d6b18-1-large.jpg', 3, 1, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (14, N'Children''s Wear Printed Sports', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 13800, N'https://cdn.tgdd.vn/Products/Images/1942/235640/qled-4k-samsung-qa43q65a-2.jpg', 3, 1, 100,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (14, N'Smart Tivi Samsung 32 inch UA32T4500', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 162990, N'https://canary.contestimg.wish.com/api/webimage/61484e2803c2ea017374ecef-3-large.jpg', 3, 1, 99,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (15, N'Big and Tall t-shirt', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 7900, N'https://cdn.tgdd.vn/Products/Images/1942/219392/ua32t4500-org.jpg', 3, 1, 99,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (15, N'Smart Tivi QLED 4K 55 inch Samsung QA55Q60B', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 112990, N'https://canary.contestimg.wish.com/api/webimage/60618cf215e17dc07c1b9e69-large.jpg', 1, 1, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (16, N'Cà vạt mảnh, hạt', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 19100, N'https://cdn.tgdd.vn/Products/Images/1942/273925/qa65q60bakxxd_001_front1_black_above.jpg', 3, 1, 100,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (16, N'Google Tivi QLED TCL 4K 43 inch 43Q636 ', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 289990, N'https://canary.contestimg.wish.com/api/webimage/5b6314a8ce3cc813ca2cfb7a-large.jpg', 6, 1, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (17, N'New Fashion Velvet Big Bowties for Women', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 10990, N'https://cdn.tgdd.vn/Products/Images/1942/276068/google-tcl-4k-43-inch-43q636-1.jpg', 4, 1, 100,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (17, N'Android Tivi TCL 43 inch L43S5200', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 177990, N'https://canary.contestimg.wish.com/api/webimage/5e9f993edf74d40042a23860-large.jpg', 6, 1, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (18, N'Áo rời in hoa Áo ngoài', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 7290, N'https://cdn.tgdd.vn/Products/Images/1942/238554/led-tcl-l43s5200-1-org.jpg', 4, 1, 100,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (18, N'Google Tivi TCL 4K 43 inch 43P635', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 122990, N'https://canary.contestimg.wish.com/api/webimage/601ecd5d51a0762d385a99fd-large.jpg', 1, 1, 99,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (19, N'Áo khoác lông cừu', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 8590, N'https://cdn.tgdd.vn/Products/Images/1942/281934/google-tcl-4k-43-inch-43p635-01.jpg', 4, 1, 99,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (19, N'Google Tivi QLED TCL 4K 55 inch 55Q636', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 182890, N'https://canary.contestimg.wish.com/api/webimage/601ecd5d51a0762d385a99fd-large.jpg', 1, 1, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (20, N'Quần áo nam mùa hè', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 17490, N'https://cdn.tgdd.vn/Products/Images/1942/276071/google-tcl-4k-55-inch-55q636-1.jpg', 4, 1, 100,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (20, N'Android Tivi TCL 4K 65 inch 65P615 ', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 179990, N'https://canary.contestimg.wish.com/api/webimage/5e0ef0cedcf6310abf715b17-5-large.jpg', 1, 1, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (21, N'Quần áo nam mùa hè', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 15990, N'https://cdn.tgdd.vn/Products/Images/1942/225956/tcl-65p615-1-1-org.jpg', 4, 1, 100,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (21, N'Google Tivi TCL 4K 75 inch 75P635', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 102990, N'https://canary.contestimg.wish.com/api/webimage/5e0ef0cedcf6310abf715b17-5-large.jpg', 1, 1, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (22, N'Áo rời in hoa Áo ngoài', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 25990, N'https://cdn.tgdd.vn/Products/Images/1942/285049/google-tcl-4k-75-inch-75p635.jpg', 4, 1, 100,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (22, N'Google Tivi Sony 4K 55 inch KD-55X75K', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 140990, N'https://canary.contestimg.wish.com/api/webimage/601ecd5d51a0762d385a99fd-large.jpg', 2, 1, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (23, N'Bộ đồ mùa hè', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 15900, N'https://cdn.tgdd.vn/Products/Images/1942/275512/untitled-1-1.jpg', 5, 1, 100,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (23, N'Google Tivi Sony 4K 43 inch KD-43X75K', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 199990, N'https://canary.contestimg.wish.com/api/webimage/601ecd5d51a0762d385a99fd-large.jpg', 2, 1, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (24, N'Bộ đồ mùa hè', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 12900, N'https://cdn.tgdd.vn/Products/Images/1942/275517/google-sony-4k-43-inch-kd-43x75k-1.jpg', 5, 1, 100,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (24, N'Google Tivi Sony 32 inch KD-32W830K ', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 159990, N'https://canary.contestimg.wish.com/api/webimage/601ecd5d51a0762d385a99fd-large.jpg', 2, 1, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (25, N'Áo khoác len Kẹo Màu', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 8200, N'https://cdn.tgdd.vn/Products/Images/1942/277446/sony-2k-32inch-kd-32w830k-1.jpg', 5, 1, 100,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (25, N'Android Tivi Sony 4K 55 inch KD-55X85J', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 129990, N'https://canary.contestimg.wish.com/api/webimage/601ecd5d51a0762d385a99fd-large.jpg', 2, 1, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (26, N'Wedding Shoes Sandals', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 15900, N'https://cdn.tgdd.vn/Products/Images/1942/238884/led-sony-kd-55x85j-2.jpg', 5, 1, 100,50)
+INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (26, N'Android Tivi Sony 4K 50 inch KD-50X75', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 789990, N'https://canary.contestimg.wish.com/api/webimage/5d82e0a88d8e1f4697a9506c-large.jpg', 7, 1, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (27, N'Quần harem mùa hè', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
+ Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 13400, N'https://cdn.tgdd.vn/Products/Images/1942/238721/Slider/vi-vn-vi-vn-led-sony-kd-50x75.jpg', 5, 1, 100,50)
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 498900, N'https://canary.contestimg.wish.com/api/webimage/601ecd5d51a0762d385a99fd-large.jpg', 2, 1, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (28, N'Quần harem mùa hè', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
 
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 269990, N'https://canary.contestimg.wish.com/api/webimage/601ecd5d51a0762d385a99fd-large.jpg', 2, 1, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (29, N'Áo khoác len Kẹo Màu', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
-
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 799900, N'https://canary.contestimg.wish.com/api/webimage/601ecd5d51a0762d385a99fd-large.jpg', 2, 1, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (75, N'Áo rời in hoa Áo ngoài', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
-
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 3000000, N'https://canary.contestimg.wish.com/api/webimage/601ecd5d51a0762d385a99fd-large.jpg', 5, 1, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (76, N'Quần harem mùa hè', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
-
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 300000, N'https://canary.contestimg.wish.com/api/webimage/601ecd5d51a0762d385a99fd-large.jpg', 5, 1, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (77, N'Lace Flower Sandals', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
-
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 600000, N'https://canary.contestimg.wish.com/api/webimage/5d81e019ef464979cd3bed36-large.jpg', 7, 1, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (78, N'Quần harem mùa hè', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
-
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 799900, N'https://canary.contestimg.wish.com/api/webimage/601ecd5d51a0762d385a99fd-large.jpg', 5, 1, 100,50)
-INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID], [SellerID], [Amount],[Stoke]) VALUES (79, N'Áo khoác len Kẹo Màu', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:
-
- Hàng hóa nhập khẩu về VN được kiểm định chất lượng..', 159990, N'https://canary.contestimg.wish.com/api/webimage/601ecd5d51a0762d385a99fd-large.jpg', 5, 1, 100,50)
 SET IDENTITY_INSERT [dbo].[Product] OFF
 INSERT [dbo].[Ship] ([CityName], [ShipPrice]) VALUES (N'Biên Hòa', 45000)
 INSERT [dbo].[Ship] ([CityName], [ShipPrice]) VALUES (N'Cần Thơ', 80000)
@@ -223,15 +201,12 @@ INSERT [dbo].[Ship] ([CityName], [ShipPrice]) VALUES (N'Việt Trì', 20000)
 SET IDENTITY_INSERT [dbo].[Users] ON 
 
 INSERT [dbo].[Users] ([UserID], [Username], [Password], [isSeller], [isAdmin]) VALUES (1, N'admin', N'123456', 1, 1)
-INSERT [dbo].[Users] ([UserID], [Username], [Password], [isSeller], [isAdmin]) VALUES (2, N'trungnh', N'123456', 1, 0)
-INSERT [dbo].[Users] ([UserID], [Username], [Password], [isSeller], [isAdmin]) VALUES (3, N'trung', N'123456', 0, 0)
+INSERT [dbo].[Users] ([UserID], [Username], [Password], [isSeller], [isAdmin]) VALUES (2, N'tien1', N'123456', 1, 0)
+INSERT [dbo].[Users] ([UserID], [Username], [Password], [isSeller], [isAdmin]) VALUES (3, N'tien2', N'123456', 0, 0)
 SET IDENTITY_INSERT [dbo].[Users] OFF
 
 
 GO
-
-
-
 
 USE [master]
 GO
