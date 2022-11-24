@@ -151,14 +151,21 @@
 <script>
 		
 		function tanggiamsoluong (i){
-			if (i == 1){ 
-				var soluong = Number($("#quantity").val()) + 1;
-				document.getElementById('quantity').value = soluong;
-			} else {
-				var soluong = Number($("#quantity").val()) - 1;
-				document.getElementById('quantity').value = soluong;
-			}
-			
+
+			    if (i == 1){
+			        var a = Number($("#stoke").val())-Number($("#quantity").val())
+                    if(a > 0){
+				    var soluong = Number($("#quantity").val()) + 1;
+				    document.getElementById('quantity').value = soluong;
+				    }
+			    } else {
+			        var a = Number($("#quantity").val())
+			        if(a > 1){
+				    var soluong = Number($("#quantity").val()) - 1;
+				    document.getElementById('quantity').value = soluong;
+				    }
+			    }
+
 		}
 	</script>
 	
