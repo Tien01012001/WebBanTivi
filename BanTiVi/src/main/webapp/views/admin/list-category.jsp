@@ -45,8 +45,8 @@
             <c:url value="${cate.icon}" var="imgUrl"></c:url>
          </c:otherwise>
       </c:choose>
+                <td>${cate.name}</td>
 				<td><img height="150" width="200" src="${imgUrl}" /></td>
-				<td>${cate.name}</td>
 				<td><a
 					href="<c:url value='/admin/category/edit?id=${cate.id }'/>"
 					class="center">Sửa</a> | <a

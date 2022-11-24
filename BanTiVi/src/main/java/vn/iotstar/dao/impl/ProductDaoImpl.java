@@ -117,7 +117,7 @@ public class ProductDaoImpl implements ProductDao {
 		return list;
 		
 	}
-	//Hiển thị 04 sản phẩm mới nhất
+	//Hiển thị 03 sản phẩm mới nhất
 		public List<ProductModel> getTop3Product(){
 			//Khai báo List để lưu danh sách sp
 			List<ProductModel> list = new ArrayList<>();

@@ -35,13 +35,18 @@ public class LoginController extends HttpServlet {
 		if (account == null) {
 			req.setAttribute("mess", "Sai tài khoản và mật khẩu");
 			req.getRequestDispatcher("/decorators/login.jsp").forward(req, resp);
-		}else {
+		}else if(account.getIsAdmin() == 1){
+			HttpSession session = req.getSession();
+			session.setAttribute("acc",account);
+			//session.setMaxInactiveInterval(1000);
+			resp.sendRedirect("admin/home");
+		}
+		else{
 			HttpSession session = req.getSession();
 			session.setAttribute("acc",account);
 			//session.setMaxInactiveInterval(1000);
 			resp.sendRedirect("home");
 		}
-		
 	}
-	
+
 }

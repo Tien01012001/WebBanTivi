@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
     public class DBConnect {
         private final String serverName = "localhost";
-        private final String dbName = "BanHang2";
+        private final String dbName = "BanHang";
         private final String portNumber = "1433";
         private final String instance="";//MSSQLSERVER LEAVE THIS ONE EMPTY IF YOUR SQL IS A SINGLE INSTANCE
         private final String userID = "sa";
@@ -22,6 +22,7 @@ import java.sql.DriverManager;
     public static void main(String[] args) {
 		try {
 			System.out.println(new DBConnect().getConnection());
+            System.out.println(new DBConnect().getConnection());
 		}catch(Exception e) {
 			
 		}

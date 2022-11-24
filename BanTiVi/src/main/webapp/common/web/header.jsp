@@ -50,9 +50,12 @@
       </li>
       </c:when>
 		<c:otherwise>
-	<li class="nav-item">
+<!--	<li class="nav-item">
         <a class="nav-link" href="${pageContext.request.contextPath }/admin/home">Trang ${sessionScope.acc.user}</a>
-      </li>
+     </li>
+-->
+
+
       <li><a class="nav-link" href="${pageContext.request.contextPath }/logout">Đăng Xuất</a></li>
       </c:otherwise>
 			</c:choose>
