@@ -201,8 +201,7 @@ INSERT [dbo].[Ship] ([CityName], [ShipPrice]) VALUES (N'Việt Trì', 20000)
 SET IDENTITY_INSERT [dbo].[Users] ON 
 
 INSERT [dbo].[Users] ([UserID], [Username], [Password], [isSeller], [isAdmin]) VALUES (1, N'admin', N'123456', 1, 1)
-INSERT [dbo].[Users] ([UserID], [Username], [Password], [isSeller], [isAdmin]) VALUES (2, N'tien1', N'123456', 1, 0)
-INSERT [dbo].[Users] ([UserID], [Username], [Password], [isSeller], [isAdmin]) VALUES (3, N'tien2', N'123456', 0, 0)
+INSERT [dbo].[Users] ([UserID], [Username], [Password], [isSeller], [isAdmin]) VALUES (2, N'user', N'123456', 1, 0)
 SET IDENTITY_INSERT [dbo].[Users] OFF
 
 
