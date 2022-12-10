@@ -7,6 +7,7 @@ import vn.iotstar.model.ProductModel;
 public interface ProductService {
 	int countAll();
 	int countCid(int cid);
+	void delete(int id);
 	List<ProductModel> getAllProduct();
 	ProductModel getTopProduct();
 	ProductModel getProductByID(String pid);

@@ -19,16 +19,15 @@
     </head>
     <body>
         <div id="logreg-forms">
-            <form class="form-signin" action="login" method="post">
-                <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
+            <form class="form-signin" action="register" method="post">
+                <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Register</h1>
                 <p class="text-danger">${mess}</p>
                 <input name="user" value="${username}"  type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
                 <input name="pass" value="${password}"  type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <br>
 
+                <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Register</button>
 
-                <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Sign in</button>
-                <a href="${pageContext.request.contextPath }/register" id="register"><i class="fas fa-angle-left"></i> Register</a>
-                
             </form>
 
             <form action="signup" method="post" class="form-signup">

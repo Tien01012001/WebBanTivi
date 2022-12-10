@@ -10,7 +10,7 @@
   <div class="collapse navbar-collapse" id="navbarScroll">
     <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
       <li class="nav-item active">
-        <a class="nav-link" href="<c:url value="/home"/>">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<c:url value="home"/>">Home <span class="sr-only">(current)</span></a>
       </li>
       
       <li class="nav-item dropdown">
@@ -18,15 +18,29 @@
           Quản lý danh mục
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-          
           <li><a class="dropdown-item" href="<c:url value="/admin/category/add"/>">Thêm danh mục mới</a></li>
            <li><a class="dropdown-item"  href="<c:url value="/admin/category/list"/>">Danh sách danh mục</a></li>
-           
-         
         </ul>
       </li>
-      
-      
+
+      <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" aria-haspopup="true" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                Quản lý sản phẩm
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                <li><a class="dropdown-item" href="<c:url value="/admin/product/add"/>">Thêm sản phẩm mới</a></li>
+                 <li><a class="dropdown-item"  href="<c:url value="/admin/product/list"/>">Danh sách sản phẩm</a></li>
+              </ul>
+            </li>
+
+      <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" aria-haspopup="true" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                Quản lý tài khoản
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                 <li><a class="dropdown-item"  href="<c:url value="/admin/account/list"/>">Danh sách tai khoan</a></li>
+              </ul>
+            </li>
       <c:choose>
 				<c:when test="${sessionScope.acc == null}">
       <li class="nav-item">

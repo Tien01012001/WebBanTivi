@@ -5,6 +5,7 @@ import java.util.List;
 import vn.iotstar.model.ProductModel;
 
 public interface ProductDao {
+	void delete(int id);
 	int countALL();
 	int countCid(int cid);
 	List<ProductModel> getAllProduct();

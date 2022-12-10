@@ -461,6 +461,18 @@ public class ProductDaoImpl implements ProductDao {
 			return list;
 
 		}
-		
-		
+
+		public void delete(int id){
+			String sql = "DELETE FROM Product WHERE ProductID = ?";
+
+			try {
+				conn = new DBConnect().getConnection();
+				ps = conn.prepareStatement(sql);
+				ps.setInt(1, id);
+				ps.executeUpdate();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 }
