@@ -97,6 +97,24 @@ CREATE TABLE [dbo].[CartItem](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+CREATE TABLE [dbo].[Orders](
+ [id] [int] IDENTITY(1,1) NOT NULL,
+ [u_id] [int] NULL,
+ [phuong_thuc_thanh_toan] [varchar](50) NULL,
+ [dia_chi_nhan] [varchar](50) NOT NULL,
+ [ngay_mua] [date] NOT NULL,
+)
+
+go
+CREATE TABLE [dbo].[OrderItem](
+ [id] [int] IDENTITY(1,1) NOT NULL,
+ [quantity] [int] NULL,
+ [unitPrice] [float] NULL,
+ [pro_id] [int] NOT NULL,
+ [order_id] [int] NOT NULL,
+)
+
+go
 SET IDENTITY_INSERT [dbo].[Category] ON 
 
 INSERT [dbo].[Category] ([CategoryID], [CategoryName], [icon]) VALUES (1, N'LG', N'https://cdn.tgdd.vn/Products/Images/1942/236884/tv-led-lg-55up7550ptc-2.jpg')

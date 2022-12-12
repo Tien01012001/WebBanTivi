@@ -8,6 +8,8 @@ import java.util.List;
 
 import vn.iotstar.connection.DBConnect;
 import vn.iotstar.dao.ProductDao;
+import vn.iotstar.model.AccountModel;
+import vn.iotstar.model.CategoryModel;
 import vn.iotstar.model.ProductModel;
 
 public class ProductDaoImpl implements ProductDao {
@@ -268,7 +270,7 @@ public class ProductDaoImpl implements ProductDao {
 	
 	
 	//lấy 1 sản phẩn theo productID
-	public ProductModel getProductByID(String id) {
+	public ProductModel getProductByID(int id) {
 		
 		String sql ="select * from product\r\n"
 				+ "where ProductID = ?";
@@ -278,7 +280,7 @@ public class ProductDaoImpl implements ProductDao {
 
 			ps = conn.prepareStatement(sql);	
 			
-			ps.setString(1, id);
+			ps.setInt(1, id);
 
 			rs = ps.executeQuery();
 
@@ -475,4 +477,50 @@ public class ProductDaoImpl implements ProductDao {
 				e.printStackTrace();
 			}
 		}
+
+	public void edit(ProductModel product) {
+		String sql = "UPDATE Product SET ProductName = ?, Description=?, Price=?, imageLink=?, CategoryID=?, SellerID=?, Amount=?,Stoke=? WHERE ProductID = ?";
+
+		try {
+			conn = new DBConnect().getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, product.getName());
+			ps.setString(2, product.getDescription());
+			ps.setDouble(3, product.getPrice());
+			ps.setString(4, product.getImage());
+			ps.setInt(5, product.getCategoryID());
+			ps.setInt(6,product.getSellerID());
+			ps.setInt(7,product.getAmount());
+			ps.setInt(8,product.getStoke());
+			ps.setInt(9,product.getId());
+			ps.executeUpdate();
+
+
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void insert(ProductModel product) {
+		String sql = "INSERT INTO [Product](ProductName, Description,Price,imageLink,CategoryID,SellerID,Amount,Stoke) VALUES (?,?,?,?,?,?,?,?)";
+
+		try {
+			conn = new DBConnect().getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, product.getName());
+			ps.setString(2,product.getDescription());
+			ps.setDouble(3,product.getPrice());
+			ps.setString(4,product.getImage());
+			ps.setInt(5,product.getCategoryID());
+			ps.setInt(6,product.getSellerID());
+			ps.setInt(7,product.getAmount());
+			ps.setInt(8,product.getStoke());
+
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

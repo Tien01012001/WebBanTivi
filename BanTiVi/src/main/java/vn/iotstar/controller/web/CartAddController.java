@@ -30,7 +30,7 @@ public class CartAddController extends HttpServlet {
 		String pId = req.getParameter("pId");
 		String quantity = req.getParameter("quantity");
 		
-		ProductModel product = productService.getProductByID(pId);
+		ProductModel product = productService.getProductByID(Integer.parseInt(pId));
 		
 		CartItemModel cartItem = new CartItemModel();
 		cartItem.setQuantity(Integer.parseInt(quantity));

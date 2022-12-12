@@ -31,14 +31,24 @@
                         
                             <td><img class="img-responsive" width="60px" height="60px" src="${imgUrl}" /> </td>
                             <td>${map.value.product.name }</td>
-                            <td>${map.value.product.stoke }</td>
+                            <td >${map.value.product.stoke }
+
+                            </td>
+
                             <td>
-                            ${map.value.quantity }
+                                    <button id="giam" onclick="tanggiamsoluong(0)" type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
+                                                                    <i class="fa fa-minus"></i>
+                                    </button>
+
+                            <input id="quantity" name="quantity" min="1" max="100" value=${map.value.quantity } disabled>
+                                    <button id="tang" onclick="tanggiamsoluong(1)" type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
                             
                            </td>
                             
                             
-                            <td class="text-right shop-red">$ ${map.value.product.price * map.value.quantity }</</td>
+                            <td class="text-right shop-red">${map.value.product.price * map.value.quantity }</</td>
                             <td class="text-right">
                             
                             <a href="${pageContext.request.contextPath}/member/cart-remove?pId=${map.value.product.id}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </a> </td>
@@ -97,3 +107,23 @@
     </div>
 </div>
 
+<script>
+
+		function tanggiamsoluong (i){
+
+			    if (i == 1){
+			        var a = Number($("#quantity").val())
+                    if(a < 50){
+				    var soluong = Number($("#quantity").val()) + 1;
+				    document.getElementById('quantity').value = soluong;
+				    }
+			    } else {
+			        var a = Number($("#quantity").val())
+			        if(a > 1){
+				    var soluong = Number($("#quantity").val()) - 1;
+				    document.getElementById('quantity').value = soluong;
+				    }
+			    }
+
+		}
+	</script>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import vn.iotstar.dao.ProductDao;
 import vn.iotstar.dao.impl.ProductDaoImpl;
+import vn.iotstar.model.AccountModel;
 import vn.iotstar.model.ProductModel;
 import vn.iotstar.service.ProductService;
 
@@ -19,6 +20,10 @@ public class ProductServiceImpl implements ProductService {
 	public int countCid(int cid) {
 		
 		return productDao.countCid(cid);
+	}
+
+	public void edit(ProductModel product) {
+		productDao.edit(product);
 	}
 
 	public void delete(int id) {
@@ -69,7 +74,7 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.getNext3Product(amount);
 	}
 	@Override
-	public ProductModel getProductByID(String pid) {
+	public ProductModel getProductByID(int pid) {
 		// TODO Auto-generated method stub
 		return productDao.getProductByID(pid);
 	}
@@ -84,4 +89,7 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.getTop1BestSellerAndNew();
 	}
 
+	public void insert(ProductModel product) {
+		productDao.insert(product);
+	}
 }

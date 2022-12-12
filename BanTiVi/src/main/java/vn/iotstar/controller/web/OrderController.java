@@ -26,6 +26,9 @@ import vn.iotstar.service.impl.OrderServiceImpl;
 
 @WebServlet(urlPatterns = { "/order" })
 public class OrderController extends HttpServlet {
+
+	OrderService orderservice = new OrderServiceImpl();
+	OrderItemService orderItemservice = new OrderItemServiceImpl();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -51,7 +54,7 @@ public class OrderController extends HttpServlet {
 		Object cart = httpSession.getAttribute("cart");
 		AccountModel user = (AccountModel) httpSession.getAttribute("acc");
 
-		OrderService orderservice = new OrderServiceImpl();
+
 		List<OrderModel> listorder = orderservice.getAll();
 
 		int id = 0;
@@ -67,7 +70,7 @@ public class OrderController extends HttpServlet {
 
 		orderservice.insert(order);
 
-		OrderItemService orderItemservice = new OrderItemServiceImpl();
+
 
 		Map<Integer, CartItemModel> map = extracted(cart);
 

@@ -7,19 +7,19 @@
 <div id="page-wrapper">
 	<div id="page-inner">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-15">
 				<h2>Chỉnh sửa tài khoản</h2>
 			</div>
 		</div>
 		<!-- /. ROW  -->
 		<hr />
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-6">
 				<!-- Form Elements -->
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<div class="row">
-							<div class="col-md-4">
+							<div class="col-md-6">
 								<h3 style="text-align: center">Tài khoản:</h3>
 
 								<c:url value="/admin/account/edit" var="edit"></c:url>

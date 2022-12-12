@@ -36,7 +36,7 @@ public class ProductDetailController extends HttpServlet {
 				
 				//Bước 2: Sử dụng đối tượng list để chứa danh sách từ ProductDAO
 				
-				ProductModel list1 = productService.getProductByID(pid);
+				ProductModel list1 = productService.getProductByID(Integer.parseInt(pid));
 				
 				List<ProductModel> list2 = productService.getTop4BestSeller();
 				List<CategoryModel> listC = cateService.getALLCategory();

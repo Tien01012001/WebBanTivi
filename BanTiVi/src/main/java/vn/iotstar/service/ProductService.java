@@ -2,15 +2,19 @@ package vn.iotstar.service;
 
 import java.util.List;
 
+import vn.iotstar.model.AccountModel;
 import vn.iotstar.model.ProductModel;
 
 public interface ProductService {
 	int countAll();
 	int countCid(int cid);
+
+	void insert(ProductModel product);
+	void edit(ProductModel product);
 	void delete(int id);
 	List<ProductModel> getAllProduct();
 	ProductModel getTopProduct();
-	ProductModel getProductByID(String pid);
+	ProductModel getProductByID(int pid);
 	List<ProductModel> getTop4BestSeller();
 	List<ProductModel> getTop4Product();
 	List<ProductModel> getTop1BestSellerAndNew();

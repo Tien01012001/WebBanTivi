@@ -23,7 +23,7 @@
                 <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Register</h1>
                 <p class="text-danger">${mess}</p>
                 <input name="user" value="${username}"  type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
-                <input name="pass" value="${password}"  type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <input name="pass" value="${password}"  type="password" id="inputPassword" class="form-control" placeholder="Password" required autofocus>
                 <br>
 
                 <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Register</button>

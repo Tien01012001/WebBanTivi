@@ -32,7 +32,7 @@
 											class="form-control" value="${category.name }" name="name" />
 									</div>
 
-									<input type="radio" id="postageyes" name="postage" value="Yes" />
+									<input type="radio" id="postageyes" name="postage" value="Yes" checked/>
 									Chèn link ảnh 
 									<br />
 									<input type="radio" id="postageno" name="postage"
@@ -55,10 +55,19 @@
 <br/>
 									<div class="form-group" id="anh" hidden="hidden">
 										 <label>Ảnh đại diện</label> <input id="inputicon" type="file"
-											name="icon" value="${category.icon }" />
+											name="icon" value="${category.icon }" accept="image/*" onchange="validateFileType()"/>
 									</div>
 									<button type="submit" class="btn btn-default">Edit</button>
 									<button type="reset" class="btn btn-primary">Reset</button>
+									<div class="form-check">
+                                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                      <label class="form-check-label" for="flexRadioDefault1">
+                                        Default radio
+                                      </label>
+                                    </div>
+
+
+
 								</form>
 
 
@@ -97,4 +106,15 @@
 		}
 
 	});
+
+	function validateFileType(){
+            var fileName = document.getElementById("inputicon").value;
+            var idxDot = fileName.lastIndexOf(".") + 1;
+            var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+            if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+
+            }else{
+                alert("XIN LỖI BẠN VỪA CHỌN KHÔNG PHẢI LÀ FILE ẢNH! VUI LÒNG THỬ LẠI");
+            }
+        }
 </script>

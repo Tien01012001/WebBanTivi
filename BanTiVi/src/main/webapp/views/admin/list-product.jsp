@@ -30,8 +30,10 @@
 			<th>Hình ảnh</th>
 			<th>Description</th>
 			<th>Giá</th>
+			<th>CategoryID</th>
 			<th>Đã bán</th>
 			<th>Còn lại</>
+			<th>Hành động</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -52,6 +54,7 @@
                 <td><img height="150" width="200" src="${imgUrl}" /></td>
                 <td>${product.description}</td>
 				<td>${product.price}$</td>
+				<td>${product.categoryID}</td>
 				<td>${product.amount}</td>
 				<td>${product.stoke}</td>
 				<td><a

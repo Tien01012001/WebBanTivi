@@ -24,7 +24,7 @@ public class SearchController extends HttpServlet {
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
 		
-		String txt1 = req.getParameter("txt").trim();
+		String txt1 = req.getParameter("txt");
 		
 		String cid = req.getParameter("cid");
 		//bước 1: Kh�?i tạo DAO

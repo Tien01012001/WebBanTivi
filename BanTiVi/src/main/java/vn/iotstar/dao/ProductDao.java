@@ -6,11 +6,14 @@ import vn.iotstar.model.ProductModel;
 
 public interface ProductDao {
 	void delete(int id);
+
+	void insert(ProductModel product);
+	void edit(ProductModel product);
 	int countALL();
 	int countCid(int cid);
 	List<ProductModel> getAllProduct();
 	ProductModel getTopProduct();
-	ProductModel getProductByID(String pid);
+	ProductModel getProductByID(int pid);
 	List<ProductModel> getTop4BestSeller();
 	List<ProductModel> getTop4Product();
 	List<ProductModel> getTop1BestSellerAndNew();

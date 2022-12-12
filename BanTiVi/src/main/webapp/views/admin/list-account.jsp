@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css">
 <div class="container">
-<table id="tbl" class="table table-striped table-bordered table-condensed"
+<table id="tba" class="table table-striped table-bordered table-condensed"
 	style="width: 100%">
 	<thead>
 		<tr>
@@ -30,6 +30,7 @@
 			<th>Password</th>
 			<th>isSeller</th>
 			<th>isAdmin</th>
+			<th>Hành động</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -55,7 +56,7 @@
  </div>
 
 <script>
-$('#tbl').DataTable({
+$('#tba').DataTable({
     dom: 'Bfrtip',
     buttons: [
         'copy', 'csv', 'excel', 'pdf', 'print'
