@@ -4,12 +4,11 @@ public class AccountModel {
 	private int uid;
 	private String user;
 	private String pass;
-	private int isSell;
 	private int isAdmin;
 	
 	@Override
 	public String toString() {
-		return "AccountModel [uid=" + uid + ", user=" + user + ", pass=" + pass + ", isSell=" + isSell + ", isAdmin="
+		return "AccountModel [uid=" + uid + ", user=" + user + ", pass=" + pass + ", isAdmin="
 				+ isAdmin + "]";
 	}
 
@@ -37,14 +36,6 @@ public class AccountModel {
 		this.pass = pass;
 	}
 
-	public int getIsSell() {
-		return isSell;
-	}
-
-	public void setIsSell(int isSell) {
-		this.isSell = isSell;
-	}
-
 	public int getIsAdmin() {
 		return isAdmin;
 	}
@@ -57,12 +48,11 @@ public class AccountModel {
 		super();
 	}
 
-	public AccountModel(int uid, String user, String pass, int isSell, int isAdmin) {
+	public AccountModel(int uid, String user, String pass, int isAdmin) {
 		super();
 		this.uid = uid;
 		this.user = user;
 		this.pass = pass;
-		this.isSell = isSell;
 		this.isAdmin = isAdmin;
 	}
 	

@@ -27,7 +27,6 @@ public class RegisterController extends HttpServlet {
 
         String username = req.getParameter("user");
         String password = req.getParameter("pass");
-        Integer isSeller = 1;
         Integer isAdmin = 0;
 
         AccountModel accountModel = new AccountModel();
@@ -40,7 +39,6 @@ public class RegisterController extends HttpServlet {
         else{
             accountModel.setUser(username);
             accountModel.setPass(password);
-            accountModel.setIsSell(isSeller);
             accountModel.setIsAdmin(isAdmin);
             userService.insert(accountModel);
             System.out.println(accountModel);

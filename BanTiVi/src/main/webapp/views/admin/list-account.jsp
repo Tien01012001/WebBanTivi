@@ -28,7 +28,6 @@
 			<th>STT</th>
 			<th>Username</th>
 			<th>Password</th>
-			<th>isSeller</th>
 			<th>isAdmin</th>
 			<th>Hành động</th>
 		</tr>
@@ -39,7 +38,6 @@
 				<td>${STT.index+1 }</td>
                 <td>${account.user}</td>
 				<td>${account.pass}</td>
-				<td>${account.isSell}</td>
 				<td>${account.isAdmin}</td>
 				<td><a
 					href="<c:url value='/admin/account/edit?id=${account.uid }'/>"

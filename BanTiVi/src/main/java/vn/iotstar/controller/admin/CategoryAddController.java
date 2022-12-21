@@ -44,12 +44,13 @@ public class CategoryAddController extends HttpServlet {
 			resp.setCharacterEncoding("UTF-8");
 			req.setCharacterEncoding("UTF-8");
 			List<FileItem> items = servletFileUpload.parseRequest(req);
+			System.out.println(items);
 			for (FileItem item : items) {
-				if (item.getFieldName().equals("cname")) {
+				if (item.getFieldName().equals("acname")) {
 					category.setName(item.getString("UTF-8"));
-				} else if (item.getFieldName().equals("imagelink")) {
+				} else if (item.getFieldName().equals("aimagelink")) {
 					category.setIcon(item.getString());
-				} else if (item.getFieldName().equals("icons")) {
+				} else if (item.getFieldName().equals("aicons")) {
 					String originalFileName = item.getName();
 					int index = originalFileName.lastIndexOf(".");
 					String ext = originalFileName.substring(index + 1);
@@ -59,6 +60,7 @@ public class CategoryAddController extends HttpServlet {
 					category.setIcon("category/" + fileName);
 				}
 			}
+
 			cateService.insert(category);
 			resp.sendRedirect(req.getContextPath() + "/admin/category/list");
 		} catch (FileUploadException e) {

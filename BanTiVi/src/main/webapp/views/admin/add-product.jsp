@@ -59,10 +59,6 @@
                                             </c:forEach>
                                         </select>
 									</div>
-                                    <div class="form-group">
-									<label>SellerID:</label> <input type="text"
-                                    		class="form-control"  name="sellerID" required autofocus/>
-									</div>
 									<div class="form-group">
 									<label>Amount:</label> <input type="text"
                                     		class="form-control"  name="amount" required autofocus/>

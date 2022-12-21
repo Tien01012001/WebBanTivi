@@ -9,7 +9,7 @@
 			placeholder="please enter category Name" name="cname" />
 	</div>
 	
-	<input type="radio" id="postageyes" name="postage" value="Yes" checked/> Chèn link ảnh
+	<input type="radio" id="postageyes" name="postage" value="Yes"/> Chèn link ảnh
 	<input type="radio" id="postageno" name="postage" value="No" /> Tải ảnh
 	<br/>
 	

@@ -40,8 +40,7 @@ public class ProductDaoImpl implements ProductDao {
 							rs.getString(5),
 							rs.getInt(6),
 							rs.getInt(7),
-							rs.getInt(8),
-							rs.getInt(9)));
+							rs.getInt(8)));
 				}
 					
 			} catch (Exception e) {
@@ -76,8 +75,7 @@ public class ProductDaoImpl implements ProductDao {
 									rs.getString(5),
 									rs.getInt(6),
 									rs.getInt(7),
-									rs.getInt(8),
-									rs.getInt(9)));
+									rs.getInt(8)));
 						}
 							
 					} catch (Exception e) {
@@ -109,8 +107,7 @@ public class ProductDaoImpl implements ProductDao {
 						rs.getString(5),
 						rs.getInt(6),
 						rs.getInt(7),
-						rs.getInt(8),
-						rs.getInt(9)));
+						rs.getInt(8)));
 			}
 				
 		} catch (Exception e) {
@@ -142,8 +139,7 @@ public class ProductDaoImpl implements ProductDao {
 							rs.getString(5),
 							rs.getInt(6),
 							rs.getInt(7),
-							rs.getInt(8),
-							rs.getInt(9)));
+							rs.getInt(8)));
 				}
 					
 			} catch (Exception e) {
@@ -180,7 +176,7 @@ public class ProductDaoImpl implements ProductDao {
 
 			while (rs.next()) {
 
-				list.add(new ProductModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getInt(8),rs.getInt(9)));
+				list.add(new ProductModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getInt(8)));
 
 			}
 
@@ -215,7 +211,7 @@ public class ProductDaoImpl implements ProductDao {
 
 						rs.getInt(4), rs.getString(5), 
 
-						rs.getInt(6), rs.getInt(7), rs.getInt(8),rs.getInt(9));
+						rs.getInt(6), rs.getInt(7), rs.getInt(8));
 
 			}
 
@@ -256,7 +252,7 @@ public class ProductDaoImpl implements ProductDao {
 
 			while (rs.next()) {
 
-				list.add(new ProductModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getInt(8),rs.getInt(9)));
+				list.add(new ProductModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getInt(8)));
 
 			}
 
@@ -294,7 +290,7 @@ public class ProductDaoImpl implements ProductDao {
 
 						rs.getInt(4), rs.getString(5), 
 
-						rs.getInt(6), rs.getInt(7), rs.getInt(8),rs.getInt(9));
+						rs.getInt(6), rs.getInt(7), rs.getInt(8));
 
 			}
 		} catch (Exception e) {
@@ -317,7 +313,7 @@ public class ProductDaoImpl implements ProductDao {
 
 						rs.getInt(4), rs.getString(5), 
 
-						rs.getInt(6), rs.getInt(7), rs.getInt(8),rs.getInt(9)));
+						rs.getInt(6), rs.getInt(7), rs.getInt(8)));
 			}
 		} catch (Exception e) {
 		}
@@ -339,7 +335,7 @@ public class ProductDaoImpl implements ProductDao {
 
 						rs.getInt(4), rs.getString(5), 
 
-						rs.getInt(6), rs.getInt(7), rs.getInt(8),rs.getInt(9)));
+						rs.getInt(6), rs.getInt(7), rs.getInt(8)));
 			}
 		} catch (Exception e) {
 		}
@@ -362,7 +358,7 @@ public class ProductDaoImpl implements ProductDao {
 
 						rs.getInt(4), rs.getString(5), 
 
-						rs.getInt(6), rs.getInt(7), rs.getInt(8),rs.getInt(9)));
+						rs.getInt(6), rs.getInt(7), rs.getInt(8)));
 			}
 		} catch (Exception e) {
 		}
@@ -426,7 +422,7 @@ public class ProductDaoImpl implements ProductDao {
 						rs.getString(5),
 						rs.getInt(6),
 						rs.getInt(7),
-						rs.getInt(8),rs.getInt(9)));
+						rs.getInt(8)));
 			}
 				
 		} catch (Exception e) {
@@ -454,7 +450,7 @@ public class ProductDaoImpl implements ProductDao {
 				// lấy ResultSet đổ vào List
 				while (rs.next()) {
 					list.add(new ProductModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),
-							rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getInt(8),rs.getInt(9)));
+							rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getInt(8)));
 				}
 
 			} catch (Exception e) {
@@ -479,7 +475,7 @@ public class ProductDaoImpl implements ProductDao {
 		}
 
 	public void edit(ProductModel product) {
-		String sql = "UPDATE Product SET ProductName = ?, Description=?, Price=?, imageLink=?, CategoryID=?, SellerID=?, Amount=?,Stoke=? WHERE ProductID = ?";
+		String sql = "UPDATE Product SET ProductName = ?, Description=?, Price=?, imageLink=?, CategoryID=?, Amount=?,Stoke=? WHERE ProductID = ?";
 
 		try {
 			conn = new DBConnect().getConnection();
@@ -489,10 +485,9 @@ public class ProductDaoImpl implements ProductDao {
 			ps.setDouble(3, product.getPrice());
 			ps.setString(4, product.getImage());
 			ps.setInt(5, product.getCategoryID());
-			ps.setInt(6,product.getSellerID());
-			ps.setInt(7,product.getAmount());
-			ps.setInt(8,product.getStoke());
-			ps.setInt(9,product.getId());
+			ps.setInt(6,product.getAmount());
+			ps.setInt(7,product.getStoke());
+			ps.setInt(8,product.getId());
 			ps.executeUpdate();
 
 
@@ -504,7 +499,7 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	public void insert(ProductModel product) {
-		String sql = "INSERT INTO [Product](ProductName, Description,Price,imageLink,CategoryID,SellerID,Amount,Stoke) VALUES (?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO [Product](ProductName, Description,Price,imageLink,CategoryID,Amount,Stoke) VALUES (?,?,?,?,?,?,?)";
 
 		try {
 			conn = new DBConnect().getConnection();
@@ -514,9 +509,8 @@ public class ProductDaoImpl implements ProductDao {
 			ps.setDouble(3,product.getPrice());
 			ps.setString(4,product.getImage());
 			ps.setInt(5,product.getCategoryID());
-			ps.setInt(6,product.getSellerID());
-			ps.setInt(7,product.getAmount());
-			ps.setInt(8,product.getStoke());
+			ps.setInt(6,product.getAmount());
+			ps.setInt(7,product.getStoke());
 
 			ps.executeUpdate();
 		} catch (Exception e) {

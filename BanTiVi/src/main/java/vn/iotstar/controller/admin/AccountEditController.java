@@ -38,13 +38,11 @@ public class AccountEditController extends HttpServlet {
 
         String username = req.getParameter("user");
         String password = req.getParameter("pass");
-        Integer isSeller = Integer.parseInt(req.getParameter("isSell"));
         Integer isAdmin = Integer.parseInt(req.getParameter("isAdmin"));
 
         account.setUid(uid);
         account.setUser(username);
         account.setPass(password);
-        account.setIsSell(isSeller);
         account.setIsAdmin(isAdmin);
 
         userService.edit(account);

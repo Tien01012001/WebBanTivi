@@ -41,16 +41,13 @@ public class LoginController extends HttpServlet {
 			//session.setMaxInactiveInterval(1000);
 			resp.sendRedirect("admin/home");
 		}
-		else if(account.getIsAdmin() == 0 && account.getIsSell() == 1){
+		else {
 			HttpSession session = req.getSession();
 			session.setAttribute("acc",account);
 			//session.setMaxInactiveInterval(1000);
 			resp.sendRedirect("home");
 		}
-		else{
-			req.setAttribute("mess", "tai khoan nay da bi khoa");
-			req.getRequestDispatcher("/decorators/login.jsp").forward(req, resp);
-		}
+
 	}
 
 }

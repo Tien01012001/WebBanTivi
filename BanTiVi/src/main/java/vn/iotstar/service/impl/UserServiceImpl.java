@@ -34,7 +34,6 @@ public class UserServiceImpl implements UserService {
 		AccountModel oldAccount = userDao.get(newAccount.getUid());
 		oldAccount.setUser(newAccount.getUser());
 		oldAccount.setPass(newAccount.getPass());
-		oldAccount.setIsSell(newAccount.getIsSell());
 		oldAccount.setIsAdmin(newAccount.getIsAdmin());
 
 		return userDao.edit(oldAccount);

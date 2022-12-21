@@ -41,7 +41,6 @@ public class ProductEditController extends HttpServlet {
         Double price = Double.parseDouble(req.getParameter("price"));
         String image = req.getParameter("image");
         Integer categoryID = Integer.parseInt(req.getParameter("categoryID"));
-        Integer sellerID = Integer.parseInt(req.getParameter("sellerID"));
         Integer amount = Integer.parseInt(req.getParameter("amount"));
         Integer stoke = Integer.parseInt(req.getParameter("stoke"));
 
@@ -52,7 +51,6 @@ public class ProductEditController extends HttpServlet {
         productModel.setPrice(price);
         productModel.setImage(image);
         productModel.setCategoryID(categoryID);
-        productModel.setSellerID(sellerID);
         productModel.setAmount(amount);
         productModel.setStoke(stoke);
 

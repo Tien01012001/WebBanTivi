@@ -18,16 +18,14 @@ public class UserDaoImpl implements UserDao {
 	
 	@Override
 	public void insert(AccountModel user) {
-		String sql = "INSERT INTO [Users](username, password, isSeller,isAdmin) VALUES (?,?,?,?)";
+		String sql = "INSERT INTO [Users](username, password, isAdmin) VALUES (?,?,?)";
 	
 		try {
 			conn = new DBConnect().getConnection();
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, user.getUser());
 			ps.setString(2, user.getPass());
-			
-			ps.setInt(3,user.getIsSell());
-			ps.setInt(4,user.getIsAdmin());
+			ps.setInt(3,user.getIsAdmin());
 			
 			ps.executeUpdate();
 		} catch (Exception e) {
@@ -48,7 +46,6 @@ public class UserDaoImpl implements UserDao {
 				user.setUid(rs.getInt("UserID"));
 				user.setUser(rs.getString("Username"));
 				user.setPass(rs.getString("Password"));
-				user.setIsSell(Integer.parseInt(rs.getString("isSeller")));
 				user.setIsAdmin(rs.getInt("isAdmin"));
 				
 				return user;
@@ -69,7 +66,7 @@ public class UserDaoImpl implements UserDao {
 			// lấy kết quả result
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				list.add(new AccountModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),rs.getInt(5)));
+				list.add(new AccountModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4)));
 			}
 
 		} catch (Exception e) {
@@ -93,11 +90,11 @@ public class UserDaoImpl implements UserDao {
 
 			{
 
-				return new AccountModel(rs.getInt(1),
-
-						rs.getString(2), rs.getString(3),
-
-						rs.getInt(4), rs.getInt(5));
+				return new AccountModel(
+						rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getInt(4));
 
 			}
 
@@ -126,21 +123,20 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	public AccountModel edit(AccountModel account) {
-		String sql = "UPDATE Users SET Username = ?, Password=?, isSeller=?, isAdmin=? WHERE UserID = ?";
+		String sql = "UPDATE Users SET Username = ?, Password=?, isAdmin=? WHERE UserID = ?";
 
 		try {
 			conn = new DBConnect().getConnection();
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, account.getUser());
 			ps.setString(2, account.getPass());
-			ps.setInt(3, account.getIsSell());
-			ps.setInt(4, account.getIsAdmin());
-			ps.setInt(5, account.getUid());
+			ps.setInt(3, account.getIsAdmin());
+			ps.setInt(4, account.getUid());
 			ps.executeUpdate();
 			// Lấy ResultSet
 
 			while (rs.next()) {
-				return new AccountModel(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getInt(4),rs.getInt(5));
+				return new AccountModel(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getInt(4));
 
 			}
 		} catch (Exception e) {

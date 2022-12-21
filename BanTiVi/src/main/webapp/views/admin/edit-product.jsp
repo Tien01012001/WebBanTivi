@@ -57,10 +57,6 @@
 									<label>CategoryID:</label> <input type="text"
                                     		class="form-control" value="${product.categoryID}" name="categoryID" />
 									</div>
-                                    <div class="form-group">
-									<label>SellerID:</label> <input type="text"
-                                    		class="form-control" value="${product.sellerID}" name="sellerID" />
-									</div>
 									<div class="form-group">
 									<label>Amount:</label> <input type="text"
                                     		class="form-control" value="${product.amount}" name="amount" />

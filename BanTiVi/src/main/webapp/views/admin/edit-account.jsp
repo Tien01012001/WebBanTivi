@@ -43,10 +43,6 @@
 
                                     <div>
                                     </div>
-                                    <div class="form-group">
-									<label>isSeller(vui long nhap 0 hoặc 1):</label> <input type="text"
-                                    		class="form-control" value="${account.isSell}" name="isSell" />
-									</div>
 
                                     <div>
                                     </div>

@@ -89,11 +89,11 @@ public class CategoryDaoimpl implements CategoryDao {
 			ps.executeUpdate();
 			// Lấy ResultSet
 
-			while (rs.next()) {
-
-				return new CategoryModel(rs.getInt(1), rs.getString(2), rs.getString(3));
-
-			}
+//			while (rs.next()) {
+//
+//				return new CategoryModel(rs.getInt(1), rs.getString(2), rs.getString(3));
+//
+//			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

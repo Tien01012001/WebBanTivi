@@ -7,14 +7,13 @@ public class ProductModel {
 	private double price;
 	private String image;
 	private int categoryID;
-	private int sellerID;
 	private int amount;
 	private int stoke;
 	public ProductModel() {
 		super();
 	}
 	public ProductModel(int id, String name, String description, double price, String image, int categoryID,
-			int sellerID, int amount, int stoke) {
+			 int amount, int stoke) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -22,7 +21,6 @@ public class ProductModel {
 		this.price = price;
 		this.image = image;
 		this.categoryID = categoryID;
-		this.sellerID = sellerID;
 		this.amount = amount;
 		this.stoke = stoke;
 	}
@@ -61,12 +59,6 @@ public class ProductModel {
 	}
 	public void setCategoryID(int categoryID) {
 		this.categoryID = categoryID;
-	}
-	public int getSellerID() {
-		return sellerID;
-	}
-	public void setSellerID(int sellerID) {
-		this.sellerID = sellerID;
 	}
 	public int getAmount() {
 		return amount;
