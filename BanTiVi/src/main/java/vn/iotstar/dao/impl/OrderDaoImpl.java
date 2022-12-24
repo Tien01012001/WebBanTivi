@@ -20,7 +20,7 @@ public class OrderDaoImpl implements OrderDao {
 
 	@Override
 	public void insert(OrderModel order) {
-		String sql = "INSERT INTO Orders VALUES (?,?,?,?,?,?)";
+		String sql = "INSERT INTO Orders VALUES (?,?,?,?,?,?,?)";
 		try {
 			Connection con = new DBConnect().getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -28,8 +28,9 @@ public class OrderDaoImpl implements OrderDao {
 			ps.setInt(2, order.getNguoiMua().getUid());
 			ps.setDouble(3, order.getTotal());
 			ps.setString(4, order.getPhuongThucThanhToan());
-			ps.setString(5, order.getDiaChiNhan());
-			ps.setDate(6, new java.sql.Date(order.getNgayMua().getTime()));
+			ps.setString(5, order.getSodienthoai());
+			ps.setString(6, order.getDiaChiNhan());
+			ps.setDate(7, new java.sql.Date(order.getNgayMua().getTime()));
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

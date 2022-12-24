@@ -8,11 +8,13 @@ public class OrderModel {
 
 	private double total;
 	private String phuongThucThanhToan;
+	private String sodienthoai;
 	private String diaChiNhan;
 	private Date ngayMua;
 	public OrderModel() {
 		super();
 	}
+
 
 	@Override
 	public String toString() {
@@ -26,13 +28,22 @@ public class OrderModel {
 				'}';
 	}
 
-	public OrderModel(int ID, AccountModel nguoiMua, double total, String phuongThucThanhToan, String diaChiNhan, Date ngayMua) {
+	public OrderModel(int ID, AccountModel nguoiMua, double total, String phuongThucThanhToan, String sodienthoai, String diaChiNhan, Date ngayMua) {
 		this.ID = ID;
 		this.nguoiMua = nguoiMua;
 		this.total = total;
 		this.phuongThucThanhToan = phuongThucThanhToan;
+		this.sodienthoai = sodienthoai;
 		this.diaChiNhan = diaChiNhan;
 		this.ngayMua = ngayMua;
+	}
+
+	public String getSodienthoai() {
+		return sodienthoai;
+	}
+
+	public void setSodienthoai(String sodienthoai) {
+		this.sodienthoai = sodienthoai;
 	}
 
 	public void setTotal(double total) {

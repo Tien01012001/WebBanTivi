@@ -52,6 +52,8 @@ public class OrderController extends HttpServlet {
 
 		String phuongthuc = req.getParameter("phuongthuc");
 		String diachinhan = req.getParameter("diachinhan");
+		String diachidetail = req.getParameter("dc1");
+		String phone = req.getParameter("sdt");
 
 		HttpSession httpSession = req.getSession();
 		Object cart = httpSession.getAttribute("cart");
@@ -86,7 +88,9 @@ public class OrderController extends HttpServlet {
 			httpSession.setAttribute("cart", map);
 
 			Date current = Date.valueOf(LocalDate.now());
-			OrderModel order = new OrderModel(id,user, total,phuongthuc, diachinhan, current);
+			String diachifull = diachidetail + "," + diachinhan;
+			System.out.println(diachifull);
+			OrderModel order = new OrderModel(id,user, total,phuongthuc,phone, diachifull, current);
 
 			orderservice.insert(order);
 			resp.sendRedirect(req.getContextPath() + "/member/cart");

@@ -28,6 +28,8 @@
 									</a> <a href="javascript:;" class="reload"> </a> <a
 										href="javascript:;" class="remove"> </a>
 								</div>
+								<br></br>
+
 							</div>
 							<div class="portlet-body form">
 								<!-- BEGIN FORM-->
@@ -36,19 +38,25 @@
 								    <>
 									<div class="form-body">
 										<div class="form-group">
-											<label class="control-label col-md-3">Địa chỉ nhận hàng
+											<label class="control-label col-md-3"><strong>Địa chỉ nhận hàng</strong>
 											</label>
 
-											<div class="col-md-4">
+											<div class="col-md-6">
+											    <label> Tỉnh/Thành
                                                 <select id="diachinhan" name="diachinhan">
                                                     <c:forEach items="${lists}" var="ship">
                                                         <option value="${ship.cityName}">${ship.cityName}</option>
                                                     </c:forEach>
                                                 </select>
+                                                <br></br>
+                                                <label><strong> Phường/xã , Quận/Huyện</strong>
+                                                <input name="dc1" id="dc1"  placeholder="Nhập Phường/xã,Quận/Huyện" size="50" required autofocus>
+                                                <label> Vd: Phường Tăng Nhơn Phú B, Quận 9
+
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="control-label col-md-3">Phương thức thanh toán</label>
+											<label class="control-label col-md-3"><strong>Phương thức thanh toán</strong></label>
 											<div class="radio-list">
 												<label>
 												<input type="radio" name="phuongthuc" id="optionsRadios1" value="Momo"> Momo</label>
@@ -56,6 +64,14 @@
 												<input type="radio" name="phuongthuc" id="optionsRadios2" value="Tiền mặt " checked> Tiền mặt </label>
 											</div>
 										</div>
+
+										<div class="form-group">
+											<label class="control-label col-md-3"><strong>Số điện thoại</strong></label>
+											<div class="col-md-6">
+											<input name="sdt" id="sdt"  placeholder="Nhập số điện thoại" required autofocus>
+											</div>
+										</div>
+
 									<div class="form-actions">
 										<div class="row">
 											<div class="col-md-offset-3 col-md-9">

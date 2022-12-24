@@ -100,7 +100,8 @@ CREATE TABLE [dbo].[Orders](
  [u_id] [int] NULL,
  [total] [float] NULL,
  [phuong_thuc_thanh_toan] [nvarchar](50) NULL,
- [dia_chi_nhan] [varchar](50) NOT NULL,
+ [so_dien_thoai] [varchar] (50) NULL,
+ [dia_chi_nhan] [nvarchar](50) NOT NULL,
  [ngay_mua] [date] NOT NULL,
 )
 
