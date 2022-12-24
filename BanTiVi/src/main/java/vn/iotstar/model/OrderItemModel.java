@@ -5,29 +5,21 @@ public class OrderItemModel {
 	private int Quantity;
 	private double uintprice;
 	private ProductModel product;
-	private OrderModel order;
+	private int order_id;
 
 	public OrderItemModel() {
 		super();
 	}
 	
-	public OrderItemModel(int quantity, double uintprice, ProductModel product, OrderModel order) {
+	public OrderItemModel(int quantity, double uintprice, ProductModel product, int order_id) {
 		super();
 		this.Quantity = quantity;
 		this.uintprice = uintprice;
 		this.product = product;
-		this.order = order;
+		this.order_id = order_id;
 	}
 
 
-	public OrderItemModel(int id,int quantity, double uintprice, ProductModel product, OrderModel order) {
-		super();
-		this.id = id;
-		this.Quantity = quantity;
-		this.uintprice = uintprice;
-		this.product = product;
-		this.order = order;
-	}
 
 	public void setId(int int1) {
 		// TODO Auto-generated method stub
@@ -39,9 +31,9 @@ public class OrderItemModel {
 		this.product=product2;
 	}
 
-	public void setOrder(OrderModel order2) {
+	public void setOrder(int order2) {
 		// TODO Auto-generated method stub
-		this.order=order2;
+		this.order_id=order2;
 	}
 
 	public void setQuantity(int int1) {
@@ -69,9 +61,9 @@ public class OrderItemModel {
 		return uintprice;
 	}
 
-	public OrderModel getOrder() {
-		// TODO Auto-generated method stub
-		return order;
+
+	public int getOrder_id() {
+		return order_id;
 	}
 
 	public ProductModel getProduct() {

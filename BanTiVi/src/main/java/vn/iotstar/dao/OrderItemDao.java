@@ -6,6 +6,4 @@ import vn.iotstar.model.OrderItemModel;
 
 public interface OrderItemDao {
 	void insert(OrderItemModel orderitem);
-	
-	List<OrderItemModel> getAll();
 }

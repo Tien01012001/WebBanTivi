@@ -22,4 +22,6 @@ public class OrderServiceImpl implements OrderService {
 		// TODO Auto-generated method stub
 		return orderdao.getAll();
 	}
+
+
 }

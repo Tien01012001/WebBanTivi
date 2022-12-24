@@ -15,27 +15,30 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import vn.iotstar.model.AccountModel;
-import vn.iotstar.model.CartItemModel;
-import vn.iotstar.model.OrderItemModel;
-import vn.iotstar.model.OrderModel;
+import vn.iotstar.model.*;
 import vn.iotstar.service.OrderItemService;
 import vn.iotstar.service.OrderService;
+import vn.iotstar.service.ShipService;
 import vn.iotstar.service.impl.OrderItemServiceImpl;
 import vn.iotstar.service.impl.OrderServiceImpl;
+import vn.iotstar.service.impl.ShipServiceImpl;
 
 @WebServlet(urlPatterns = { "/order" })
 public class OrderController extends HttpServlet {
 
 	OrderService orderservice = new OrderServiceImpl();
 	OrderItemService orderItemservice = new OrderItemServiceImpl();
+
+	ShipService shipService = new ShipServiceImpl();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		resp.setContentType("text/html");
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
-
+		List<ShipModel> listS = shipService.getAllShip();
+		System.out.println(listS);
+		req.setAttribute("lists", listS);
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/views/order.jsp");
 		dispatcher.forward(req, resp);
 	}
@@ -55,52 +58,44 @@ public class OrderController extends HttpServlet {
 		AccountModel user = (AccountModel) httpSession.getAttribute("acc");
 
 
-		List<OrderModel> listorder = orderservice.getAll();
-
-		int id = 0;
-
-		if (listorder.size() == 0) {
-			id = 1;
-		} else {
-			id = listorder.get(listorder.size() - 1).getID() + 1;
-		}
-
-		Date current = Date.valueOf(LocalDate.now());
-		OrderModel order = new OrderModel(id, user, phuongthuc, diachinhan, current);
-
-		orderservice.insert(order);
-
-
-
-		Map<Integer, CartItemModel> map = extracted(cart);
-
+		Object obj = httpSession.getAttribute("cart");
+		Map<Integer, CartItemModel> map = (Map<Integer, CartItemModel>) obj;
 		Set<Integer> set = map.keySet();
-		for (Integer key : set) {
+		System.out.println("set:"+ set);
+		Double total = 0.0;
+		try {
+			List<OrderModel> listorder = orderservice.getAll();
+			int id = 0;
 
-			List<OrderItemModel> listorderitem = orderItemservice.getAll();
-
-			int idorderitem = 0;
-
-			if (listorderitem.size() == 0) {
-				idorderitem = 1;
-
+			if (listorder.size() == 0) {
+				id = 1;
 			} else {
-				idorderitem = listorderitem.get(listorderitem.size() - 1).getId() + 1;
+				id = listorder.get(listorder.size() - 1).getID() + 1;
 			}
-			CartItemModel cartItem = map.get(key);
-			OrderItemModel orderItem = new OrderItemModel(idorderitem, cartItem.getQuantity(), cartItem.getUnitPrice(),
-					cartItem.getProduct(), order);
-			orderItemservice.insert(orderItem);
-			map.remove(key);
+			for (Integer key : set) {
+				CartItemModel cartItem = map.get(key);
+				total = total + cartItem.getUnitPrice();
+				OrderItemModel orderItem = new OrderItemModel(cartItem.getQuantity(), cartItem.getUnitPrice(),
+						cartItem.getProduct(), id);
+				orderItemservice.insert(orderItem);
+			}
+			total = total + shipService.getShip(diachinhan);
+			System.out.println(diachinhan);
+			System.out.println(total);
+			map.clear();
+			httpSession.setAttribute("cart", map);
+
+			Date current = Date.valueOf(LocalDate.now());
+			OrderModel order = new OrderModel(id,user, total,phuongthuc, diachinhan, current);
+
+			orderservice.insert(order);
+			resp.sendRedirect(req.getContextPath() + "/member/cart");
+
 		}
-
-		httpSession.setAttribute("cart", map);
-
-		resp.sendRedirect(req.getContextPath() + "/member/cart");
+		catch (Exception e){
+			e.printStackTrace();
+		}
 	}
 
-	@SuppressWarnings("unchecked")
-	private Map<Integer, CartItemModel> extracted(Object obj) {
-		return (Map<Integer, CartItemModel>) obj;
-	}
+
 }

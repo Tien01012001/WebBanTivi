@@ -14,10 +14,5 @@ public class OrderItemServiceImpl implements OrderItemService {
 		// TODO Auto-generated method stub
 		orderitemdao.insert(orderItem);
 	}
-	@Override
-	public List<OrderItemModel> getAll() {
-		// TODO Auto-generated method stub
-		return orderitemdao.getAll();
-	}
-	
+
 }

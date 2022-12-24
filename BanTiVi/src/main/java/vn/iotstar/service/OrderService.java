@@ -8,4 +8,5 @@ public interface OrderService {
 	void insert(OrderModel order);
 	
 	List<OrderModel> getAll();
+
 }

@@ -20,15 +20,16 @@ public class OrderDaoImpl implements OrderDao {
 
 	@Override
 	public void insert(OrderModel order) {
-		String sql = "INSERT INTO Orders VALUES (?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO Orders VALUES (?,?,?,?,?,?)";
 		try {
 			Connection con = new DBConnect().getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, order.getID());
 			ps.setInt(2, order.getNguoiMua().getUid());
-			ps.setString(3, order.getPhuongThucThanhToan());
-			ps.setString(4, order.getDiaChiNhan());
-			ps.setDate(5, new java.sql.Date(order.getNgayMua().getTime()));
+			ps.setDouble(3, order.getTotal());
+			ps.setString(4, order.getPhuongThucThanhToan());
+			ps.setString(5, order.getDiaChiNhan());
+			ps.setDate(6, new java.sql.Date(order.getNgayMua().getTime()));
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -61,5 +62,7 @@ public class OrderDaoImpl implements OrderDao {
 		}
 		return orderList;
 	}
+
+
 
 }

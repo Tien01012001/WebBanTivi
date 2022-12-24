@@ -66,8 +66,9 @@
 												<c:set var="total"
 													value="${total + map.value.quantity * map.value.product.price}" />
 											</c:forEach>
+
 											<div class="total-result-in">
-												<span>$ ${total }</span>
+												<span>$ ${total}</span>
 
 											</div>
 </td>
@@ -76,9 +77,18 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
                             <td>Shipping</td>
-                            <td class="text-right">---</td>
+                            <td>
+
+                                <select id="nameship" onchange="myFunction(${total})">
+                                    <c:forEach items="${listship}" var="ship">
+                                        <option value="${ship.priceShip}">${ship.cityName}</option>
+                                    </c:forEach>
+                                </select>
+
+                            </td>
+
+                            <td class="text-right" id="priceship">${priceShip}</td>
                         </tr>
                         <tr>
                             <td></td>
@@ -86,7 +96,8 @@
                             <td></td>
                             <td></td>
                             <td><strong>Total</strong></td>
-                            <td class="text-right"><strong>$ ${total }</strong></td>
+                            <c:set var="total"  value="${total + priceShip}" />
+                            <td class="text-right" id="money"><strong>$ ${total }</strong></td>
                         </tr>
                     </tbody>
                 </table>
@@ -126,4 +137,12 @@
 			    }
 
 		}
+
+		function myFunction(total) {
+		   var a = total
+           var x = document.getElementById("nameship").value;
+          document.getElementById("priceship").innerHTML = x;
+          var tien = Number(a) + Number(x)
+          document.getElementById("money").innerHTML = "$"+tien;
+        }
 	</script>

@@ -25,54 +25,19 @@ public class OrderItemDaoImpl implements OrderItemDao {
 
 	@Override
 	public void insert(OrderItemModel orderitem) {
-		String sql = "INSERT INTO OrderItem VALUES (?,?,?,?,?)";
+		String sql = "INSERT INTO [OrderItem](quantity, unitPrice, pro_id, order_id) VALUES (?,?,?,?)";
 		try {
 			Connection con = new DBConnect().getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, orderitem.getId());
-			ps.setInt(2, orderitem.getQuantity());
-			ps.setDouble(3, orderitem.getUintprice());
-			ps.setInt(4, orderitem.getProduct().getId());
-			ps.setInt(5, orderitem.getOrder().getID());		
+			ps.setInt(1, orderitem.getQuantity());
+			ps.setDouble(2, orderitem.getUintprice());
+			ps.setInt(3, orderitem.getProduct().getId());
+			ps.setInt(4, orderitem.getOrder_id());
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	@Override
-	public List<OrderItemModel> getAll() {
-		// TODO Auto-generated method stub
-		List<OrderItemModel> orderItemList = new ArrayList<OrderItemModel>();
-		String sql = "SELECT OrderItem.id, OrderItem.quantity, OrderItem.unitPrice, Orders.u_id, Orders.phuong_thuc_thanh_toan, Orders.dia_chi_nhan, Orders.ngay_mua, Product.ProductName, Product.price FROM OrderItem INNER JOIN Orders ON OrderItem.order_id = Orders.id INNER JOIN Product ON OrderItem.pro_id = Product.ProductID";
-	
-		try {
-			Connection con = new DBConnect().getConnection();
-			
-			PreparedStatement ps = con.prepareStatement(sql);
-			ResultSet rs = ps.executeQuery();
-			while (rs.next()) {
-				AccountModel user = userDao.get(rs.getInt("u_id"));
-				OrderModel order = new OrderModel();
-				order.setNguoiMua(user);
-				order.setPhuongThucThanhToan("phuong_thuc_thanh_toan");
-				order.setDiaChiNhan("dia_chi_nhan");
-				order.setNgayMua(rs.getDate("ngay_mua"));
-				ProductModel product = new ProductModel();
-				product.setName(rs.getString("ProductName"));
-				product.setPrice(rs.getInt("price"));
-				OrderItemModel orderItem = new OrderItemModel();
-				orderItem.setId(rs.getInt("id"));
-				orderItem.setOrder(order);;
-				orderItem.setProduct(product);
-				orderItem.setQuantity(rs.getInt("quantity"));
-				orderItem.setUintprice(rs.getLong("unitPrice"));
-				orderItemList.add(orderItem);
 
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return orderItemList;
-	}
 }

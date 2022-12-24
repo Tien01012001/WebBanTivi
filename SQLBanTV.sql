@@ -96,9 +96,10 @@ CREATE TABLE [dbo].[CartItem](
 ) ON [PRIMARY]
 GO
 CREATE TABLE [dbo].[Orders](
- [id] [int] IDENTITY(1,1) NOT NULL,
+ [id] [int]  NOT NULL,
  [u_id] [int] NULL,
- [phuong_thuc_thanh_toan] [varchar](50) NULL,
+ [total] [float] NULL,
+ [phuong_thuc_thanh_toan] [nvarchar](50) NULL,
  [dia_chi_nhan] [varchar](50) NOT NULL,
  [ngay_mua] [date] NOT NULL,
 )

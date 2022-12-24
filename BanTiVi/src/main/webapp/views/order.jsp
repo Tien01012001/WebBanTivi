@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@include file="/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,7 @@
 </head>
 <body>
 <div class="container">
+
 	<!-- BEGIN CONTAINER -->
 	<div class="page-container">
 		<div class="page-content-wrapper">
@@ -30,24 +32,19 @@
 							<div class="portlet-body form">
 								<!-- BEGIN FORM-->
 								<form action="order" method="post" id="form_sample_2" class="form-horizontal">
+
+								    <>
 									<div class="form-body">
-										<div class="alert alert-danger ${alertmess != null ? "" : "display-hide" }">
-											<button class="close" data-close="alert"></button>
-											${alertmess }
-										</div>
-										<div class="alert alert-success display-hide">
-											<button class="close" data-close="alert"></button>
-											Your form validation is successful!
-										</div>
 										<div class="form-group">
-											<label class="control-label col-md-3">Địa chỉ nhận hàng <span
-												class="required"> * </span>
+											<label class="control-label col-md-3">Địa chỉ nhận hàng
 											</label>
+
 											<div class="col-md-4">
-												<div class="input-icon right">
-													<i class="fa"></i> <input id="input" type="text" class="form-control"
-														name="diachinhan" required />
-												</div>
+                                                <select id="diachinhan" name="diachinhan">
+                                                    <c:forEach items="${lists}" var="ship">
+                                                        <option value="${ship.cityName}">${ship.cityName}</option>
+                                                    </c:forEach>
+                                                </select>
 											</div>
 										</div>
 										<div class="form-group">
@@ -56,7 +53,7 @@
 												<label>
 												<input type="radio" name="phuongthuc" id="optionsRadios1" value="Momo"> Momo</label>
 												<label>
-												<input type="radio" name="phuongthuc" id="optionsRadios2" value="Tiền mặt "> Tiền mặt </label>
+												<input type="radio" name="phuongthuc" id="optionsRadios2" value="Tiền mặt " checked> Tiền mặt </label>
 											</div>
 										</div>
 									<div class="form-actions">

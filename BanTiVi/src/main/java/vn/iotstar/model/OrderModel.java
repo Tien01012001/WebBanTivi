@@ -5,27 +5,44 @@ import java.util.Date;
 public class OrderModel {
 	private int ID;
 	private AccountModel nguoiMua;
+
+	private double total;
 	private String phuongThucThanhToan;
 	private String diaChiNhan;
 	private Date ngayMua;
 	public OrderModel() {
 		super();
 	}
-	
-	public OrderModel(AccountModel nguoiMua, Date ngayMua) {
-		super();
-		this.nguoiMua = nguoiMua;
-		this.ngayMua = ngayMua;
+
+	@Override
+	public String toString() {
+		return "OrderModel{" +
+				"ID=" + ID +
+				", nguoiMua=" + nguoiMua +
+				", total=" + total +
+				", phuongThucThanhToan='" + phuongThucThanhToan + '\'' +
+				", diaChiNhan='" + diaChiNhan + '\'' +
+				", ngayMua=" + ngayMua +
+				'}';
 	}
 
-	public OrderModel(int iD, AccountModel nguoimua, String phuongThucThanhToan, String diaChiNhan, Date ngayMua) {
-		super();
-		ID = iD;
+	public OrderModel(int ID, AccountModel nguoiMua, double total, String phuongThucThanhToan, String diaChiNhan, Date ngayMua) {
+		this.ID = ID;
 		this.nguoiMua = nguoiMua;
+		this.total = total;
 		this.phuongThucThanhToan = phuongThucThanhToan;
 		this.diaChiNhan = diaChiNhan;
 		this.ngayMua = ngayMua;
 	}
+
+	public void setTotal(double total) {
+		this.total = total;
+	}
+
+	public double getTotal() {
+		return total;
+	}
+
 	public int getID() {
 		// TODO Auto-generated method stub
 		return ID;
@@ -37,7 +54,7 @@ public class OrderModel {
 		return phuongThucThanhToan;
 	}
 	public String getDiaChiNhan() {
-		return diaChiNhan;		
+		return diaChiNhan;
 	}
 	public Date  getNgayMua() {
 		return ngayMua;
@@ -45,12 +62,12 @@ public class OrderModel {
 	public void setID(int int1) {
 		// TODO Auto-generated method stub
 		this.ID=int1;
-		
+
 	}
 	public void setNguoiMua(AccountModel user) {
 		// TODO Auto-generated method stub
 		this.nguoiMua=user;
-		
+
 	}
 	public void setPhuongThucThanhToan(String string) {
 		// TODO Auto-generated method stub
@@ -64,5 +81,5 @@ public class OrderModel {
 		// TODO Auto-generated method stub
 		this.ngayMua=date;
 	}
-	
+
 }

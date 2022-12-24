@@ -10,7 +10,7 @@
   <div class="collapse navbar-collapse" id="navbarScroll">
     <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
       <li class="nav-item active">
-        <a class="nav-link" href="/BanHang/admin/home">Home </a>
+        <a class="nav-link" href="/BanHang/home">Home </a>
       </li>
       
       <li class="nav-item dropdown">

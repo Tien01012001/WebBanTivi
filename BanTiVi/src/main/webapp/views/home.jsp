@@ -62,7 +62,7 @@
 
 							<div class="col">
 
-								<a href="productdetail?pid=${o.id}&cid=${o.categoryID}" class="btn btn-success btn-block">View</a>
+								<a href="<c:url value="/member/cart-add?pId=${o.id}&quantity=1"></c:url>" class="btn btn-success btn-block">Add to cart</a>
 
 							</div>
 
