@@ -74,6 +74,18 @@ public class OrderController extends HttpServlet {
 			} else {
 				id = listorder.get(listorder.size() - 1).getID() + 1;
 			}
+			Date current = Date.valueOf(LocalDate.now());
+			String diachifull = diachidetail + "," + diachinhan;
+			System.out.println(diachifull);
+			for (Integer key : set) {
+				CartItemModel cartItem = map.get(key);
+				total = total + cartItem.getUnitPrice();
+			}
+			total = total + shipService.getShip(diachinhan);
+			OrderModel order = new OrderModel(id,user, total,phuongthuc,phone, diachifull, current);
+
+			orderservice.insert(order);
+
 			for (Integer key : set) {
 				CartItemModel cartItem = map.get(key);
 				total = total + cartItem.getUnitPrice();
@@ -81,18 +93,13 @@ public class OrderController extends HttpServlet {
 						cartItem.getProduct(), id);
 				orderItemservice.insert(orderItem);
 			}
-			total = total + shipService.getShip(diachinhan);
+
 			System.out.println(diachinhan);
 			System.out.println(total);
 			map.clear();
 			httpSession.setAttribute("cart", map);
 
-			Date current = Date.valueOf(LocalDate.now());
-			String diachifull = diachidetail + "," + diachinhan;
-			System.out.println(diachifull);
-			OrderModel order = new OrderModel(id,user, total,phuongthuc,phone, diachifull, current);
 
-			orderservice.insert(order);
 			resp.sendRedirect(req.getContextPath() + "/member/cart");
 
 		}
