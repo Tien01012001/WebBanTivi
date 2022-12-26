@@ -8,5 +8,7 @@ public interface OrderDao {
 	void insert(OrderModel order);
 	
 	List<OrderModel> getAll();
+	void delete(int id);
+	void ShipSuccess(int id);
 
 }

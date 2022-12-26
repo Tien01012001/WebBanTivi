@@ -39,5 +39,44 @@ public class OrderItemDaoImpl implements OrderItemDao {
 		}
 	}
 
+	public void delete(int id) {
+		String sql = "DELETE FROM OrderItem WHERE order_id = ?";
+
+		try {
+			Connection con = new DBConnect().getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1,id);
+			ps.executeQuery();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	public List<OrderItemModel> getAllByID(int id) {
+		// TODO Auto-generated method stub
+		List<OrderItemModel> orderItemList = new ArrayList<OrderItemModel>();
+		String sql = "SELECT quantity, unitPrice, pro_id, order_id from OrderItem where order_id = ?";
+		try {
+			Connection con = new DBConnect().getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1,id);
+			ps.executeQuery();
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				ProductModel product = productService.getProductByID(rs.getInt(3));
+				orderItemList.add(new OrderItemModel(rs.getInt(1),
+						rs.getDouble(2),
+						product,
+						rs.getInt(4)));
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return orderItemList;
+	}
 
 }

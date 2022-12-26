@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         <link href="<c:url value="/templates/css/login.css"/>" rel="stylesheet" type="text/css"/>
-        <title>Login Form</title>
+        <title>Register Form</title>
     </head>
     <body>
         <div id="logreg-forms">
@@ -24,22 +24,10 @@
                 <p class="text-danger">${mess}</p>
                 <input name="user" value="${username}"  type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
                 <input name="pass" value="${password}"  type="password" id="inputPassword" class="form-control" placeholder="Password" required autofocus>
-                <br>
-
                 <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Register</button>
-
+                <a href="${pageContext.request.contextPath }/login" id="register"><i class="fa fa-undo"></i> Back</a>
             </form>
 
-            <form action="signup" method="post" class="form-signup">
-                <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign up</h1>
-                <input name="user" type="text" id="user-name" class="form-control" placeholder="User name" required autofocus>
-                <input name="pass" type="password" id="user-pass" class="form-control" placeholder="Password" required autofocus>
-                <input name="repass" type="password" id="user-repeatpass" class="form-control" placeholder="Repeat Password" required autofocus="">
-
-                <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Sign Up</button>
-                <a href="#" id="cancel_signup"><i class="fas fa-angle-left"></i> Back</a>
-            </form>
-            <br>
 
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

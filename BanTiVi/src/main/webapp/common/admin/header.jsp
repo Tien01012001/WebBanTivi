@@ -40,7 +40,17 @@
               <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                  <li><a class="dropdown-item"  href="<c:url value="/admin/account/list"/>">Danh sách tai khoan</a></li>
               </ul>
-            </li>
+      </li>
+
+      <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" aria-haspopup="true" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                Quản lý đơn hàng
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                 <li><a class="dropdown-item"  href="<c:url value="/admin/order/list"/>">Danh sách đơn hàng</a></li>
+              </ul>
+      </li>
+
       <c:choose>
 				<c:when test="${sessionScope.acc == null}">
       <li class="nav-item">

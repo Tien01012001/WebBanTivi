@@ -11,24 +11,13 @@ public class OrderModel {
 	private String sodienthoai;
 	private String diaChiNhan;
 	private Date ngayMua;
+	private String trangThai;
 	public OrderModel() {
 		super();
 	}
 
 
-	@Override
-	public String toString() {
-		return "OrderModel{" +
-				"ID=" + ID +
-				", nguoiMua=" + nguoiMua +
-				", total=" + total +
-				", phuongThucThanhToan='" + phuongThucThanhToan + '\'' +
-				", diaChiNhan='" + diaChiNhan + '\'' +
-				", ngayMua=" + ngayMua +
-				'}';
-	}
-
-	public OrderModel(int ID, AccountModel nguoiMua, double total, String phuongThucThanhToan, String sodienthoai, String diaChiNhan, Date ngayMua) {
+	public OrderModel(int ID, AccountModel nguoiMua, double total, String phuongThucThanhToan, String sodienthoai, String diaChiNhan, Date ngayMua, String trangThai) {
 		this.ID = ID;
 		this.nguoiMua = nguoiMua;
 		this.total = total;
@@ -36,61 +25,70 @@ public class OrderModel {
 		this.sodienthoai = sodienthoai;
 		this.diaChiNhan = diaChiNhan;
 		this.ngayMua = ngayMua;
+		this.trangThai = trangThai;
 	}
 
-	public String getSodienthoai() {
-		return sodienthoai;
+	public int getID() {
+		return ID;
 	}
 
-	public void setSodienthoai(String sodienthoai) {
-		this.sodienthoai = sodienthoai;
-	}
-
-	public void setTotal(double total) {
-		this.total = total;
+	public AccountModel getNguoiMua() {
+		return nguoiMua;
 	}
 
 	public double getTotal() {
 		return total;
 	}
 
-	public int getID() {
-		// TODO Auto-generated method stub
-		return ID;
-	}
-	public AccountModel getNguoiMua() {
-		return nguoiMua;
-	}
 	public String getPhuongThucThanhToan() {
 		return phuongThucThanhToan;
 	}
+
+	public String getSodienthoai() {
+		return sodienthoai;
+	}
+
 	public String getDiaChiNhan() {
 		return diaChiNhan;
 	}
-	public Date  getNgayMua() {
+
+	public Date getNgayMua() {
 		return ngayMua;
 	}
-	public void setID(int int1) {
-		// TODO Auto-generated method stub
-		this.ID=int1;
 
-	}
-	public void setNguoiMua(AccountModel user) {
-		// TODO Auto-generated method stub
-		this.nguoiMua=user;
-
-	}
-	public void setPhuongThucThanhToan(String string) {
-		// TODO Auto-generated method stub
-		this.phuongThucThanhToan=string;
-	}
-	public void setDiaChiNhan(String string) {
-		// TODO Auto-generated method stub
-		this.diaChiNhan=string;
-	}
-	public void setNgayMua(Date date) {
-		// TODO Auto-generated method stub
-		this.ngayMua=date;
+	public String getTrangThai() {
+		return trangThai;
 	}
 
+	public void setID(int ID) {
+		this.ID = ID;
+	}
+
+	public void setNguoiMua(AccountModel nguoiMua) {
+		this.nguoiMua = nguoiMua;
+	}
+
+	public void setTotal(double total) {
+		this.total = total;
+	}
+
+	public void setPhuongThucThanhToan(String phuongThucThanhToan) {
+		this.phuongThucThanhToan = phuongThucThanhToan;
+	}
+
+	public void setSodienthoai(String sodienthoai) {
+		this.sodienthoai = sodienthoai;
+	}
+
+	public void setDiaChiNhan(String diaChiNhan) {
+		this.diaChiNhan = diaChiNhan;
+	}
+
+	public void setNgayMua(Date ngayMua) {
+		this.ngayMua = ngayMua;
+	}
+
+	public void setTrangThai(String trangThai) {
+		this.trangThai = trangThai;
+	}
 }

@@ -82,7 +82,9 @@ public class OrderController extends HttpServlet {
 				total = total + cartItem.getUnitPrice();
 			}
 			total = total + shipService.getShip(diachinhan);
-			OrderModel order = new OrderModel(id,user, total,phuongthuc,phone, diachifull, current);
+
+			String status = "Đang giao";
+			OrderModel order = new OrderModel(id,user, total,phuongthuc,phone, diachifull, current,status);
 
 			orderservice.insert(order);
 

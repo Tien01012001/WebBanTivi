@@ -18,6 +18,15 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
+	public void delete(int id) {
+		orderdao.delete(id);
+	}
+
+	public void ShipSuccess(int id){
+		orderdao.ShipSuccess(id);
+	}
+
+	@Override
 	public List<OrderModel> getAll() {
 		// TODO Auto-generated method stub
 		return orderdao.getAll();

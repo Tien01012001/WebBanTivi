@@ -41,9 +41,9 @@
 				<td>${account.isAdmin}</td>
 				<td><a
 					href="<c:url value='/admin/account/edit?id=${account.uid }'/>"
-					class="center">Sửa</a> | <a
+					class="btn btn-success"><i class="fa fa-pencil"></i></a> | <a
 					href="<c:url value='/admin/account/delete?id=${account.uid }'/>"
-					class="center">Xóa</a></td>
+					class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
 			</tr>
 		</c:forEach>
 

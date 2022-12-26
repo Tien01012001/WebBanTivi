@@ -20,53 +20,68 @@
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css">
-<div class="container">
-<table id="tbl" class="table table-striped table-bordered table-condensed"
+<div class="container" >
+<table id="tba" class="table table-striped table-bordered table-condensed"
 	style="width: 100%">
 	<thead>
 		<tr>
-			<th>STT</th>
-			<th>Tên danh mục</th>
-			<th>Ảnh đại diện</th>
-			<th>Hành động</th>
+			<th style="width:5%">STT</th>
+			<th style="width:5%">Tên</th>
+			<th style="width:10%">Tổng tiền</th>
+			<th>Phương thức thanh toán</th>
+			<th>SĐT</th>
+			<th>Địa chỉ</th>
+			<th>Ngày mua</th>
+			<th>Trạng thái</th>
+			<th style="width:11%">Hành động</th>
+
 		</tr>
 	</thead>
 	<tbody>
-		<c:forEach items="${cateList}" var="cate" varStatus="STT">
+	    <c:set var = "success" value="Đã giao"/>
+		<c:forEach items="${orderList}" var="order" varStatus="STT">
 			<tr class="odd gradeX">
 				<td>${STT.index+1 }</td>
-				<c:set var = "string1" value="${cate.icon}"/>
-				<c:set var = "string2" value = "${fn:substring(string1, 0, 4)}" />
-		<c:choose>
-         <c:when test = "${string2 =='cate'}">
-            <c:url value="/image?fname=${cate.icon}" var="imgUrl"></c:url>
-         </c:when>
-         <c:otherwise>
-            <c:url value="${cate.icon}" var="imgUrl"></c:url>
-         </c:otherwise>
-      </c:choose>
-                <td>${cate.name}</td>
-				<td><img height="150" width="200" src="${imgUrl}" /></td>
-				<td><a
-					href="<c:url value='/admin/category/edit?id=${cate.id }'/>"
-					class="btn  btn-success"><i class="fa fa-pencil"></i></a> | <a
-					href="<c:url value='/admin/category/delete?id=${cate.id }'/>"
-					class="btn  btn-danger"><i class="fa fa-trash"></i></a></td>
+                <td>${order.nguoiMua.user}</td>
+				<td>${order.total}</td>
+				<td>${order.phuongThucThanhToan}</td>
+				<td>${order.sodienthoai}</td>
+				<td>${order.diaChiNhan}</td>
+				<td>${order.ngayMua}</td>
+				<td>${order.trangThai}</td>
+				<td>
+
+				<c:choose>
+
+				    <c:when test="${order.trangThai == success}">
+                                        <a href="<c:url value='/admin/order/edit?id=${order.ID }'/>"
+                                		class="btn btn-sm btn btn-secondary" disabled><i class="fa fa-motorcycle"></i></a>
+					</c:when>
+					<c:otherwise>
+        					<a href="<c:url value='/admin/order/edit?id=${order.ID }'/>"
+                            class="btn btn-sm btn-success"><i class="fa fa-motorcycle"></i></a>
+                    </c:otherwise>
+				</c:choose>
+				<a href="<c:url value='/admin/order/delete?id=${order.ID }'/>"
+				    class="btn btn-sm btn-danger"> <i class="fa fa-trash"></i></a>
+				<a href="<c:url value='/admin/order/view?id=${order.ID}'/>"
+                    class="btn btn-sm btn-info"> <i class="fa fa-info""></i></a></td>
+
+
 			</tr>
 		</c:forEach>
 
 
 	</tbody>
-	
+
 </table>
  </div>
 
 <script>
-$('#tbl').DataTable({
+$('#tba').DataTable({
     dom: 'Bfrtip',
     buttons: [
         'copy', 'csv', 'excel', 'pdf', 'print'
     ]
 });    </script>
 
-     

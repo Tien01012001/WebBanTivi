@@ -20,53 +20,32 @@
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css">
-<div class="container">
-<table id="tbl" class="table table-striped table-bordered table-condensed"
+<div class="container" >
+<table id="tba" class="table table-striped table-bordered table-condensed"
 	style="width: 100%">
 	<thead>
 		<tr>
-			<th>STT</th>
-			<th>Tên danh mục</th>
-			<th>Ảnh đại diện</th>
-			<th>Hành động</th>
+			<th >STT</th>
+			<th >Tên Sản Phẩm</th>
+			<th >Giá tiền</th>
+			<th>Số lượng</th>
 		</tr>
 	</thead>
 	<tbody>
-		<c:forEach items="${cateList}" var="cate" varStatus="STT">
+
+		<c:forEach items="${orderItemList}" var="order" varStatus="STT">
 			<tr class="odd gradeX">
 				<td>${STT.index+1 }</td>
-				<c:set var = "string1" value="${cate.icon}"/>
-				<c:set var = "string2" value = "${fn:substring(string1, 0, 4)}" />
-		<c:choose>
-         <c:when test = "${string2 =='cate'}">
-            <c:url value="/image?fname=${cate.icon}" var="imgUrl"></c:url>
-         </c:when>
-         <c:otherwise>
-            <c:url value="${cate.icon}" var="imgUrl"></c:url>
-         </c:otherwise>
-      </c:choose>
-                <td>${cate.name}</td>
-				<td><img height="150" width="200" src="${imgUrl}" /></td>
-				<td><a
-					href="<c:url value='/admin/category/edit?id=${cate.id }'/>"
-					class="btn  btn-success"><i class="fa fa-pencil"></i></a> | <a
-					href="<c:url value='/admin/category/delete?id=${cate.id }'/>"
-					class="btn  btn-danger"><i class="fa fa-trash"></i></a></td>
+                <td>${order.product.name}</td>
+				<td>${order.uintprice}</td>
+				<td>${order.quantity}</td>
 			</tr>
 		</c:forEach>
 
-
 	</tbody>
-	
 </table>
+<a href="<c:url value='/admin/order/list'/>"
+    				    class="btn btn-sm btn-primary"> Cancel</i></a>
  </div>
 
-<script>
-$('#tbl').DataTable({
-    dom: 'Bfrtip',
-    buttons: [
-        'copy', 'csv', 'excel', 'pdf', 'print'
-    ]
-});    </script>
 
-     

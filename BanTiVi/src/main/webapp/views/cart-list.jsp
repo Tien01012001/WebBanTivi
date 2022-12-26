@@ -109,8 +109,18 @@
                 <button class="btn btn-lg btn-block btn-success text-uppercase" onclick="location.href='${pageContext.request.contextPath}'" type="button">Continue Shopping</button>
                 </div>
                 <div class="col-sm-12 col-md-6 text-right">
-					<a class="btn btn-lg btn-block btn-success text-uppercase"
-						href="${pageContext.request.contextPath }/order">Checkout</a>
+                <c:choose>
+                <c:when test="${sessionScope.acc == null}">
+                    <a class="btn btn-lg btn-block btn-success text-uppercase"
+                            href="${pageContext.request.contextPath }/login">Vui lòng Đăng Nhập để đặt hàng</a>
+                </c:when>
+                <c:otherwise>
+                    <a class="btn btn-lg btn-block btn-success text-uppercase"
+                    		href="${pageContext.request.contextPath }/order">Checkout</a>
+                </c:otherwise>
+
+                </c:choose>
+
 				</div>
 
             </div>

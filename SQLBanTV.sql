@@ -2,8 +2,6 @@
 go
 USE [BanHang]
 GO
-/****** Object:  Table [dbo].[Cart]    Script Date: 9/30/2021 8:58:50 AM ******/
-
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12,26 +10,8 @@ CREATE TABLE [dbo].[Category](
 	[CategoryID] [int] IDENTITY(1,1) NOT NULL,
 	[CategoryName] [nvarchar](1000) NULL,
 	[icon] [nvarchar](1000) NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[CategoryID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Information]    Script Date: 9/30/2021 8:58:51 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Information](
-	[description] [nvarchar](max) NULL,
-	[address] [nvarchar](max) NULL,
-	[email] [nvarchar](max) NULL,
-	[phone] [nvarchar](max) NULL,
-	[fax] [nvarchar](max) NULL
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Product]    Script Date: 9/30/2021 8:58:51 AM ******/
+	PRIMARY KEY CLUSTERED ([CategoryID] ASC)
+);
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -45,42 +25,31 @@ CREATE TABLE [dbo].[Product](
 	[CategoryID] [int] NULL,
 	[Amount] [int] NULL,
 	[Stoke] [int] NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[ProductID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+    PRIMARY KEY CLUSTERED ([ProductID] ASC),
+    FOREIGN KEY ([CategoryID]) REFERENCES [dbo].[Category] ([CategoryID])
+);
 GO
 
 CREATE TABLE [dbo].[Ship](
 	[CityName] [nvarchar](1000) NOT NULL,
-	[ShipPrice] [int] NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[CityName] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
+	[ShipPrice] [int] NULL)
+	
+Go
 CREATE TABLE [dbo].[Users](
 	[UserID] [int] IDENTITY(1,1) NOT NULL,
 	[Username] [nvarchar](500) NULL,
 	[Password] [nvarchar](1000) NULL,
 	[isAdmin] [int] NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[UserID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+	PRIMARY KEY CLUSTERED ([UserID] ASC)
+);
 GO
 CREATE TABLE [dbo].[Cart](
  [id] [varchar](50) NOT NULL,
  [u_id] [int] NOT NULL,
  [buyDate] [date] NULL,
- CONSTRAINT [PK_Cart] PRIMARY KEY CLUSTERED 
-(
- [id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+ PRIMARY KEY CLUSTERED ([id] ASC),
+ FOREIGN KEY ([u_id]) REFERENCES [dbo].[Users] ([UserID])
+);
 GO
 
 CREATE TABLE [dbo].[CartItem](
@@ -89,11 +58,10 @@ CREATE TABLE [dbo].[CartItem](
  [unitPrice] [float] NULL,
  [pro_id] [int] NOT NULL,
  [cat_id] [varchar](50) NOT NULL,
- CONSTRAINT [PK_CartItem] PRIMARY KEY CLUSTERED 
-(
- [id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+ PRIMARY KEY CLUSTERED ([id] ASC),
+ FOREIGN KEY ([pro_id]) REFERENCES [dbo].[Product] ([ProductID]),
+ FOREIGN KEY ([cat_id]) REFERENCES [dbo].[Cart] ([id])
+);
 GO
 CREATE TABLE [dbo].[Orders](
  [id] [int]  NOT NULL,
@@ -103,7 +71,10 @@ CREATE TABLE [dbo].[Orders](
  [so_dien_thoai] [varchar] (50) NULL,
  [dia_chi_nhan] [nvarchar](50) NOT NULL,
  [ngay_mua] [date] NOT NULL,
-)
+ [trang_thai] [nvarchar] (50) Not null
+ PRIMARY KEY CLUSTERED ([id] ASC),
+ FOREIGN KEY ([u_id]) REFERENCES [dbo].[Users] ([UserID])
+);
 
 go
 CREATE TABLE [dbo].[OrderItem](
@@ -112,7 +83,10 @@ CREATE TABLE [dbo].[OrderItem](
  [unitPrice] [float] NULL,
  [pro_id] [int] NOT NULL,
  [order_id] [int] NOT NULL,
-)
+ PRIMARY KEY CLUSTERED ([id] ASC),
+ FOREIGN KEY ([pro_id]) REFERENCES [dbo].[Product] ([ProductID]),
+ FOREIGN KEY ([order_id]) REFERENCES [dbo].[Orders] ([id])
+);
 
 go
 SET IDENTITY_INSERT [dbo].[Category] ON 
@@ -124,7 +98,6 @@ INSERT [dbo].[Category] ([CategoryID], [CategoryName], [icon]) VALUES (4, N'TCL'
 INSERT [dbo].[Category] ([CategoryID], [CategoryName], [icon]) VALUES (5, N'Sony', N'https://cdn.tgdd.vn/Products/Images/1942/238884/led-sony-kd-55x85j-2.jpg')
 
 SET IDENTITY_INSERT [dbo].[Category] OFF
-INSERT [dbo].[Information] ([description], [address], [email], [phone], [fax]) VALUES (N'© 2021 All Right', N'Số 8, Thủ Đức, Hồ Chí Minh', N'abc@gmail.com', N'1900 0000', N'1900 0000')
 SET IDENTITY_INSERT [dbo].[Product] ON 
 
 INSERT [dbo].[Product] ([ProductID], [ProductName], [Description], [Price], [imageLink], [CategoryID],[Amount],[Stoke]) VALUES (1, N'Smart Tivi LG 4K 55 inch 55UP7550PTC ', N'Chúng tôi luôn đưa đến cho khách hàng những sản phẩm nhập khẩu tốt nhất với quy trình sản xuất chuyên nghiệp:

@@ -33,7 +33,7 @@
 			<th>CategoryID</th>
 			<th>Đã bán</th>
 			<th>Còn lại</>
-			<th>Hành động</th>
+			<th style="width: 9%">Hành động</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -59,9 +59,9 @@
 				<td>${product.stoke}</td>
 				<td><a
 					href="<c:url value='/admin/product/edit?id=${product.id }'/>"
-					class="center">Sửa</a> | <a
+					class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a> | <a
 					href="<c:url value='/admin/product/delete?id=${product.id }'/>"
-					class="center">Xóa</a></td>
+					class="btn btn-sm btn-danger"><i class="fa fa-trash"></a></td>
 			</tr>
 		</c:forEach>
 

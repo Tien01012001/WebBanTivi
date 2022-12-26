@@ -15,4 +15,12 @@ public class OrderItemServiceImpl implements OrderItemService {
 		orderitemdao.insert(orderItem);
 	}
 
+	public void delete(int id) {
+		orderitemdao.delete(id);
+	}
+
+	public List<OrderItemModel> getAllByID(int id){
+		return orderitemdao.getAllByID(id);
+	}
+
 }
