@@ -531,4 +531,21 @@ public class ProductDaoImpl implements ProductDao {
 			e.printStackTrace();
 		}
 	}
+
+	public void updateStoke(int stoke,int id){
+		String sql = "UPDATE Product SET Stoke = ? WHERE ProductID = ?";
+
+		try {
+			Connection con = new DBConnect().getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1,stoke);
+			ps.setInt(2, id);
+			ps.executeUpdate();
+			// Lấy ResultSet
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

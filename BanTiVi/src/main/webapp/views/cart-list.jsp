@@ -7,13 +7,13 @@
     <div class="row">
         <div class="col-12">
             <div class="table-responsive">
-                <table class="table table-striped">
+                <table class="table table-striped" style="width: 100%">
                     <thead>
                         <tr>
                             <th scope="col">Ảnh </th>
                             <th scope="col">Tên sản phẩm</th>
                             <th scope="col">Tồn kho</th>
-                            <th scope="col" class="text-center">Số lượng</th>
+                            <th scope="col" class="text-center" >Số lượng</th>
                             <th scope="col" class="text-right">Giá</th>
                             <th> </th>
                         </tr>
@@ -24,34 +24,22 @@
                     
                     
                     <c:forEach items="${sessionScope.cart}" var="map">
-                    
+
                         <tr>
                         <c:url value="${map.value.product.image}"
 											var="imgUrl"></c:url>
                         
                             <td><img class="img-responsive" width="60px" height="60px" src="${imgUrl}" /> </td>
                             <td>${map.value.product.name }</td>
-                            <td >${map.value.product.stoke }
+                            <td >${map.value.product.stoke }</td>
 
-                            </td>
-
-                            <td>
-                                    <button id="giam" onclick="tanggiamsoluong(0)" type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
-                                                                    <i class="fa fa-minus"></i>
-                                    </button>
-
-                            <input id="quantity" name="quantity" min="1" max="100" value=${map.value.quantity } disabled>
-                                    <button id="tang" onclick="tanggiamsoluong(1)" type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
-                            
-                           </td>
+                            <td>${map.value.quantity }</td>
                             
                             
                             <td class="text-right shop-red">${map.value.product.price * map.value.quantity }</</td>
                             <td class="text-right">
                             
-                            <a href="${pageContext.request.contextPath}/member/cart-remove?pId=${map.value.product.id}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </a> </td>
+                            <a href="${pageContext.request.contextPath}/cart-remove?pId=${map.value.product.id}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </a> </td>
                         </tr>
                     </c:forEach>
                        
@@ -97,7 +85,7 @@
                             <td></td>
                             <td><strong>Total</strong></td>
                             <c:set var="total"  value="${total + priceShip}" />
-                            <td class="text-right" id="money"><strong>$ ${total }</strong></td>
+                            <td class="text-right" id="money">$ ${total }</td>
                         </tr>
                     </tbody>
                 </table>
@@ -130,24 +118,6 @@
 
 <script>
 
-		function tanggiamsoluong (i){
-
-			    if (i == 1){
-			        var a = Number($("#quantity").val())
-                    if(a < 50){
-				    var soluong = Number($("#quantity").val()) + 1;
-				    document.getElementById('quantity').value = soluong;
-				    }
-			    } else {
-			        var a = Number($("#quantity").val())
-			        if(a > 1){
-				    var soluong = Number($("#quantity").val()) - 1;
-				    document.getElementById('quantity').value = soluong;
-				    }
-			    }
-
-		}
-
 		function myFunction(total) {
 		   var a = total
            var x = document.getElementById("nameship").value;
@@ -155,4 +125,4 @@
           var tien = Number(a) + Number(x)
           document.getElementById("money").innerHTML = "$"+tien;
         }
-	</script>
+</script>

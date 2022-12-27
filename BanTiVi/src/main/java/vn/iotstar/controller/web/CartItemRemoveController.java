@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import vn.iotstar.model.CartItemModel;
 
 @SuppressWarnings("serial")
-@WebServlet(urlPatterns = { "/member/cart-remove" }) // ?pId=?123
+@WebServlet(urlPatterns = { "/cart-remove" }) // ?pId=?123
 public class CartItemRemoveController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

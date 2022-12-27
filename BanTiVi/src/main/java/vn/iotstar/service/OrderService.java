@@ -10,6 +10,8 @@ public interface OrderService {
 	
 	List<OrderModel> getAll();
 
-	void ShipSuccess(int id);
+	List<OrderModel> getAllByIdUser(int id);
+
+	void ShipSuccess(int id,String status);
 
 }

@@ -15,7 +15,7 @@
 				<li><c:url value="/image?fname=${map.value.product.image }"
 						var="imgUrl"></c:url> <img src="${imgUrl}" alt="" width="10"
 					height="20"> <a
-					href="${pageContext.request.contextPath}/member/cart-remove?pId=${map.value.product.id} "><button
+					href="${pageContext.request.contextPath}/cart-remove?pId=${map.value.product.id} "><button
 							type="button" class="close">×</button></a>
 					<div class="overflow-h">
 						<span>${map.value.product.name }</span> <small>${map.value.quantity }
@@ -35,11 +35,11 @@
 				</div>
 				<div class="row">
 					<div class="col-xs-6">
-						<a href="${pageContext.request.contextPath}/member/cart"
+						<a href="${pageContext.request.contextPath}/cart"
 							class="btn-u btn-brd btn-brd-hover btn-u-sea-shop btn-block">Xem giỏ hàng</a>
 					</div>
 					<div class="col-xs-6">
-						<a href="${pageContext.request.contextPath}/member/order"
+						<a href="${pageContext.request.contextPath}/order"
 							class="btn-u btn-u-sea-shop btn-block">Thanh toán</a>
 					</div>
 				</div>

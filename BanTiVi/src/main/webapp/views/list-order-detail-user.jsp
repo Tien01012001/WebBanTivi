@@ -45,7 +45,7 @@
 
 </table>
 
-<a href="<c:url value='/admin/order/list'/>"
+<a href="<c:url value='/list-order'/>"
 				    class="btn  btn-primary"> Cancel</a>
  </div>
 

@@ -18,9 +18,11 @@ import javax.servlet.http.HttpSession;
 import vn.iotstar.model.*;
 import vn.iotstar.service.OrderItemService;
 import vn.iotstar.service.OrderService;
+import vn.iotstar.service.ProductService;
 import vn.iotstar.service.ShipService;
 import vn.iotstar.service.impl.OrderItemServiceImpl;
 import vn.iotstar.service.impl.OrderServiceImpl;
+import vn.iotstar.service.impl.ProductServiceImpl;
 import vn.iotstar.service.impl.ShipServiceImpl;
 
 @WebServlet(urlPatterns = { "/order" })
@@ -28,6 +30,7 @@ public class OrderController extends HttpServlet {
 
 	OrderService orderservice = new OrderServiceImpl();
 	OrderItemService orderItemservice = new OrderItemServiceImpl();
+	ProductService productService = new ProductServiceImpl();
 
 	ShipService shipService = new ShipServiceImpl();
 	@Override
@@ -37,7 +40,6 @@ public class OrderController extends HttpServlet {
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
 		List<ShipModel> listS = shipService.getAllShip();
-		System.out.println(listS);
 		req.setAttribute("lists", listS);
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/views/order.jsp");
 		dispatcher.forward(req, resp);
@@ -63,7 +65,7 @@ public class OrderController extends HttpServlet {
 		Object obj = httpSession.getAttribute("cart");
 		Map<Integer, CartItemModel> map = (Map<Integer, CartItemModel>) obj;
 		Set<Integer> set = map.keySet();
-		System.out.println("set:"+ set);
+
 		Double total = 0.0;
 		try {
 			List<OrderModel> listorder = orderservice.getAll();
@@ -76,14 +78,14 @@ public class OrderController extends HttpServlet {
 			}
 			Date current = Date.valueOf(LocalDate.now());
 			String diachifull = diachidetail + "," + diachinhan;
-			System.out.println(diachifull);
+
 			for (Integer key : set) {
 				CartItemModel cartItem = map.get(key);
 				total = total + cartItem.getUnitPrice();
 			}
 			total = total + shipService.getShip(diachinhan);
 
-			String status = "Đang giao";
+			String status = "Đang chuẩn bị";
 			OrderModel order = new OrderModel(id,user, total,phuongthuc,phone, diachifull, current,status);
 
 			orderservice.insert(order);
@@ -94,15 +96,16 @@ public class OrderController extends HttpServlet {
 				OrderItemModel orderItem = new OrderItemModel(cartItem.getQuantity(), cartItem.getUnitPrice(),
 						cartItem.getProduct(), id);
 				orderItemservice.insert(orderItem);
+
+				productService.updateStoke((cartItem.getProduct().getStoke()-cartItem.getQuantity()),cartItem.getProduct().getId());
 			}
 
-			System.out.println(diachinhan);
-			System.out.println(total);
+
 			map.clear();
 			httpSession.setAttribute("cart", map);
 
 
-			resp.sendRedirect(req.getContextPath() + "/member/cart");
+			resp.sendRedirect(req.getContextPath() + "/cart");
 
 		}
 		catch (Exception e){

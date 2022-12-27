@@ -62,7 +62,7 @@
 
 							<div class="col">
 
-								<a href="<c:url value="/member/cart-add?pId=${o.id}&quantity=1"></c:url>" class="btn btn-success btn-block">Add to cart</a>
+								<a href="<c:url value="/cart-add?pId=${o.id}&quantity=1"></c:url>" class="btn btn-success btn-block">Add to cart</a>
 
 							</div>
 
@@ -100,7 +100,7 @@
                                             <p class="btn btn-danger btn-block">${o.price} $</p>
                                         </div>
                                         <div class="col">
-                                            <a href="<c:url value="/member/cart-add?pId=${o.id}&quantity=1"></c:url>" class="btn btn-success btn-block">Add to cart</a>
+                                            <a href="<c:url value="/cart-add?pId=${o.id}&quantity=1"></c:url>" class="btn btn-success btn-block">Add to cart</a>
                                         </div>
                                     </div>
                                 </div>
@@ -139,7 +139,7 @@
                                             <p class="btn btn-danger btn-block">${o.price} $</p>
                                         </div>
                                         <div class="col">
-                                            <a href="<c:url value="/member/cart-add?pId=${o.id}&quantity=1"></c:url>" class="btn btn-success btn-block">Add to cart</a>
+                                            <a href="<c:url value="/cart-add?pId=${o.id}&quantity=1"></c:url>" class="btn btn-success btn-block">Add to cart</a>
                                         </div>
                                     </div>
                                 </div>

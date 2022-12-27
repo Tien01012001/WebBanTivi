@@ -22,14 +22,18 @@ public class OrderServiceImpl implements OrderService {
 		orderdao.delete(id);
 	}
 
-	public void ShipSuccess(int id){
-		orderdao.ShipSuccess(id);
+	public void ShipSuccess(int id,String status){
+		orderdao.ShipSuccess(id,status);
 	}
 
 	@Override
 	public List<OrderModel> getAll() {
 		// TODO Auto-generated method stub
 		return orderdao.getAll();
+	}
+
+	public List<OrderModel> getAllByIdUser(int id){
+		return orderdao.getAllByIdUser(id);
 	}
 
 

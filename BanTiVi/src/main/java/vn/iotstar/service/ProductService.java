@@ -24,4 +24,6 @@ public interface ProductService {
 	List<ProductModel> pagingProduct(int index);
 	List<ProductModel> getTop3Product();
 	List<ProductModel> getNext3Product(int amount);
+
+	void updateStoke(int stoke,int id);
 }

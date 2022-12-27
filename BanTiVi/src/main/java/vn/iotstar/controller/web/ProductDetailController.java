@@ -32,7 +32,7 @@ public class ProductDetailController extends HttpServlet {
 				req.setCharacterEncoding("UTF-8");
 				//lấy tham số từ JSP
 				String pid = req.getParameter("pid");
-				 String cid = req.getParameter("cid");
+				String cid = req.getParameter("cid");
 				
 				//Bước 2: Sử dụng đối tượng list để chứa danh sách từ ProductDAO
 				

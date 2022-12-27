@@ -33,7 +33,7 @@
 			<th>Địa chỉ</th>
 			<th>Ngày mua</th>
 			<th>Trạng thái</th>
-			<th style="width:15%">Hành động</th>
+			<th style="width:11%">Hành động</th>
 
 		</tr>
 	</thead>
@@ -54,31 +54,16 @@
 
 				<c:choose>
 
-				    <c:when test="${order.trangThai == success}">
-				                         <a href=""
-                                            class="btn btn-sm btn btn-secondary" disabled><i class="fa fa-check-square"></i></a>
-					</c:when>
+				    <c:when test="${order.trangThai == success || order.trangThai == shipping}">
 
+					</c:when>
 					<c:otherwise>
-					        <a href="<c:url value='/admin/order/successship?id=${order.ID }'/>"
-                                  class="btn btn-sm btn-success"><i class="fa fa-check-square"></i></a>
+					        <a href="<c:url value='/delete-order?id=${order.ID }'/>"
+                                class="btn btn-sm btn-danger"> <i class="fa fa-trash"></i></a>
                     </c:otherwise>
 				</c:choose>
-				<c:choose>
 
-                	<c:when test="${order.trangThai == success || order.trangThai == shipping }">
-                        <a href=""
-                             class="btn btn-sm btn btn-secondary" disabled><i class="fa fa-motorcycle"></i></a>
-                	</c:when>
-
-                	<c:otherwise>
-                        <a href="<c:url value='/admin/order/shipping?id=${order.ID }'/>"
-                             class="btn btn-sm btn btn-warning"><i class="fa fa-motorcycle"></i></a>
-                    </c:otherwise>
-                </c:choose>
-				<a href="<c:url value='/admin/order/delete?id=${order.ID }'/>"
-				    class="btn btn-sm btn-danger"> <i class="fa fa-trash"></i></a>
-				<a href="<c:url value='/admin/order/view?id=${order.ID}'/>"
+				<a href="<c:url value='/orderdetail?id=${order.ID}'/>"
                     class="btn btn-sm btn-info"> <i class="fa fa-info""></i></a></td>
 
 

@@ -17,7 +17,7 @@ import vn.iotstar.service.ProductService;
 import vn.iotstar.service.impl.ProductServiceImpl;
 
 @SuppressWarnings("serial")
-@WebServlet(urlPatterns = { "/member/cart-add" }) // ?pId=123
+@WebServlet(urlPatterns = { "/cart-add" }) // ?pId=123
 public class CartAddController extends HttpServlet {
 	ProductService productService = new ProductServiceImpl();
 
@@ -26,20 +26,20 @@ public class CartAddController extends HttpServlet {
 		resp.setContentType("text/html");
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
-		
+
 		String pId = req.getParameter("pId");
 		String quantity = req.getParameter("quantity");
-		
+
 		ProductModel product = productService.getProductByID(Integer.parseInt(pId));
-		
+
 		CartItemModel cartItem = new CartItemModel();
 		cartItem.setQuantity(Integer.parseInt(quantity));
 		cartItem.setUnitPrice(product.getPrice());
 		cartItem.setProduct(product);
-		
+
 		HttpSession httpSession = req.getSession();
 		Object obj = httpSession.getAttribute("cart");
-		
+
 		if (obj == null) {
 			Map<Integer, CartItemModel> map = new HashMap<Integer, CartItemModel>();
 			map.put(cartItem.getProduct().getId(), cartItem);
@@ -55,9 +55,10 @@ public class CartAddController extends HttpServlet {
 
 			httpSession.setAttribute("cart", map);
 		}
-		
-		resp.sendRedirect(req.getContextPath() + "/member/cart");
+
+		resp.sendRedirect(req.getContextPath() + "/cart");
 	}
+
 
 	@SuppressWarnings("unchecked")
 	private Map<Integer, CartItemModel> extracted(Object obj) {

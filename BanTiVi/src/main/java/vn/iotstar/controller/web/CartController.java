@@ -21,7 +21,7 @@ import vn.iotstar.service.impl.CategoryServiceImpl;
 import vn.iotstar.service.impl.ShipServiceImpl;
 
 @SuppressWarnings("serial")
-@WebServlet(urlPatterns = { "/member/cart" })
+@WebServlet(urlPatterns = { "/cart" })
 public class CartController extends HttpServlet implements Serializable {
 	//bước 1: Kh�?i tạo Service
 		ShipService shipService = new ShipServiceImpl();
@@ -43,7 +43,6 @@ public class CartController extends HttpServlet implements Serializable {
 		req.setAttribute("priceShip", priceShip);
 		req.setAttribute("listcate", listC);
 		req.setAttribute("listship", listS);
-		System.out.println(listS);
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/views/cart-list.jsp");
 		dispatcher.forward(req, resp);
 	}

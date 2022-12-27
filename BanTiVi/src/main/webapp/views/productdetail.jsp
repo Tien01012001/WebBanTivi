@@ -29,7 +29,7 @@
                     <p class="price">${pdetail.price} $</p>
                    
                        <form name="f1" class="product-quantity sm-margin-bottom-20"
-								method="get" action="<c:url value="/member/cart-add"></c:url>">
+								method="get" action="<c:url value="/cart-add"></c:url>">
 							      <div class="form-group">
                            
                         </div>
@@ -44,13 +44,14 @@
                                         <i class="fa fa-minus"></i>
                                     </button>
                                 </div>
-                                <input type="text" class="form-control"  id="quantity" name="quantity" min="1" max="100" value="1">
+                                <input type="text" class="form-control"  id="quantity" name="quantity" min="1" max="100" value="1" oninput= "setTimeout(check, 300)">
                                 
                                 <div class="input-group-append">
                                     <button id="tang" onclick="tanggiamsoluong(1)" type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
                                         <i class="fa fa-plus"></i>
                                     </button>
                                 </div>
+                                <p class="text-danger">${mess}</p>
                                 <input type="text" class="form-control"  id="pID" name="pId" min="1" max="100" value="${productdetail.productID }" hidden>
                             </div>
                             </div>
@@ -149,7 +150,7 @@
 </div>
 <script src="<c:url value="/templates/product-quantity.js"/>"></script>
 <script>
-		
+
 		function tanggiamsoluong (i){
 
 			    if (i == 1){
@@ -167,5 +168,20 @@
 			    }
 
 		}
+
+		function check(){
+		    var a = Number($("#quantity").val())
+		    var b = Number($("#stoke").val())-Number($("#quantity").val())
+		    if(isNaN(a)||a<0){
+		        alert("Bạn vừa nhập số lượng không hợp lệ")
+		        document.getElementById('quantity').value = 1;
+		    }
+		    else if(b<0){
+		        alert("Bạn vừa nhập số lượng lơn hơn số lượng tồn kho vui lòng nhập lại")
+		        document.getElementById('quantity').value = 1 ;
+		    }
+		}
+
+
 	</script>
 	

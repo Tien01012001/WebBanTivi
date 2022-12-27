@@ -53,6 +53,9 @@
 	<li class="nav-item">
         <a class="nav-link" href="">Xin chào ${sessionScope.acc.user}</a>
     </li>
+    <li class="nav-item">
+            <a class="nav-link" href="${pageContext.request.contextPath }/list-order">Xem đơn hàng</a>
+        </li>
 
 
 
@@ -69,7 +72,7 @@
                         </button>
                     </div>
                 </div>
-                <a class="btn btn-success btn-sm ml-3" href="${pageContext.request.contextPath }/member/cart">
+                <a class="btn btn-success btn-sm ml-3" href="${pageContext.request.contextPath }/cart">
                     <c:set var="count" value="${0}" /> 
 	<c:forEach items="${sessionScope.cart}" var="map">
 			<c:set var="count" value="${count + map.value.quantity}" />
