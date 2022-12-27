@@ -36,7 +36,7 @@ public class ProductDaoImpl implements ProductDao {
 					list.add(new ProductModel(rs.getInt(1), 
 							rs.getString(2),
 							rs.getString(3),
-							rs.getInt(4),
+							rs.getDouble(4),
 							rs.getString(5),
 							rs.getInt(6),
 							rs.getInt(7),
@@ -71,7 +71,7 @@ public class ProductDaoImpl implements ProductDao {
 							list.add(new ProductModel(rs.getInt(1), 
 									rs.getString(2),
 									rs.getString(3),
-									rs.getInt(4),
+									rs.getDouble(4),
 									rs.getString(5),
 									rs.getInt(6),
 									rs.getInt(7),
@@ -103,7 +103,7 @@ public class ProductDaoImpl implements ProductDao {
 				list.add(new ProductModel(rs.getInt(1), 
 						rs.getString(2),
 						rs.getString(3),
-						rs.getInt(4),
+						rs.getDouble(4),
 						rs.getString(5),
 						rs.getInt(6),
 						rs.getInt(7),
@@ -135,7 +135,7 @@ public class ProductDaoImpl implements ProductDao {
 					list.add(new ProductModel(rs.getInt(1), 
 							rs.getString(2),
 							rs.getString(3),
-							rs.getInt(4),
+							rs.getDouble(4),
 							rs.getString(5),
 							rs.getInt(6),
 							rs.getInt(7),
@@ -176,7 +176,7 @@ public class ProductDaoImpl implements ProductDao {
 
 			while (rs.next()) {
 
-				list.add(new ProductModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getInt(8)));
+				list.add(new ProductModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDouble(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getInt(8)));
 
 			}
 
@@ -209,7 +209,7 @@ public class ProductDaoImpl implements ProductDao {
 
 						rs.getString(2), rs.getString(3),
 
-						rs.getInt(4), rs.getString(5), 
+						rs.getDouble(4), rs.getString(5),
 
 						rs.getInt(6), rs.getInt(7), rs.getInt(8));
 
@@ -252,7 +252,7 @@ public class ProductDaoImpl implements ProductDao {
 
 			while (rs.next()) {
 
-				list.add(new ProductModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getInt(8)));
+				list.add(new ProductModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDouble(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getInt(8)));
 
 			}
 
@@ -288,7 +288,7 @@ public class ProductDaoImpl implements ProductDao {
 
 						rs.getString(2), rs.getString(3),
 
-						rs.getInt(4), rs.getString(5), 
+						rs.getDouble(4), rs.getString(5),
 
 						rs.getInt(6), rs.getInt(7), rs.getInt(8));
 
@@ -311,7 +311,7 @@ public class ProductDaoImpl implements ProductDao {
 
 						rs.getString(2), rs.getString(3),
 
-						rs.getInt(4), rs.getString(5), 
+						rs.getDouble(4), rs.getString(5),
 
 						rs.getInt(6), rs.getInt(7), rs.getInt(8)));
 			}
@@ -333,7 +333,7 @@ public class ProductDaoImpl implements ProductDao {
 
 						rs.getString(2), rs.getString(3),
 
-						rs.getInt(4), rs.getString(5), 
+						rs.getDouble(4), rs.getString(5),
 
 						rs.getInt(6), rs.getInt(7), rs.getInt(8)));
 			}
@@ -356,7 +356,7 @@ public class ProductDaoImpl implements ProductDao {
 
 						rs.getString(2), rs.getString(3),
 
-						rs.getInt(4), rs.getString(5), 
+						rs.getDouble(4), rs.getString(5),
 
 						rs.getInt(6), rs.getInt(7), rs.getInt(8)));
 			}
@@ -418,7 +418,7 @@ public class ProductDaoImpl implements ProductDao {
 				list.add(new ProductModel(rs.getInt(1), 
 						rs.getString(2),
 						rs.getString(3),
-						rs.getInt(4),
+						rs.getDouble(4),
 						rs.getString(5),
 						rs.getInt(6),
 						rs.getInt(7),
@@ -449,7 +449,7 @@ public class ProductDaoImpl implements ProductDao {
 				rs = ps.executeQuery();
 				// lấy ResultSet đổ vào List
 				while (rs.next()) {
-					list.add(new ProductModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),
+					list.add(new ProductModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDouble(4),
 							rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getInt(8)));
 				}
 
@@ -473,6 +473,20 @@ public class ProductDaoImpl implements ProductDao {
 				e.printStackTrace();
 			}
 		}
+
+	public void deleteByCID(int cid){
+		String sql = "DELETE FROM Product WHERE CategoryID = ?";
+
+		try {
+			conn = new DBConnect().getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, cid);
+			ps.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	public void edit(ProductModel product) {
 		String sql = "UPDATE Product SET ProductName = ?, Description=?, Price=?, imageLink=?, CategoryID=?, Amount=?,Stoke=? WHERE ProductID = ?";

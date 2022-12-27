@@ -20,7 +20,7 @@ CREATE TABLE [dbo].[Product](
 	[ProductID] [int] IDENTITY(1,1) NOT NULL,
 	[ProductName] [nvarchar](1000) NULL,
 	[Description] [nvarchar](2000) NULL,
-	[Price] [int] NULL,
+	[Price] [float] NULL,
 	[imageLink] [nvarchar](1000) NULL,
 	[CategoryID] [int] NULL,
 	[Amount] [int] NULL,
@@ -43,26 +43,7 @@ CREATE TABLE [dbo].[Users](
 	PRIMARY KEY CLUSTERED ([UserID] ASC)
 );
 GO
-CREATE TABLE [dbo].[Cart](
- [id] [varchar](50) NOT NULL,
- [u_id] [int] NOT NULL,
- [buyDate] [date] NULL,
- PRIMARY KEY CLUSTERED ([id] ASC),
- FOREIGN KEY ([u_id]) REFERENCES [dbo].[Users] ([UserID])
-);
-GO
 
-CREATE TABLE [dbo].[CartItem](
- [id] [varchar](50) NOT NULL,
- [quantity] [int] NULL,
- [unitPrice] [float] NULL,
- [pro_id] [int] NOT NULL,
- [cat_id] [varchar](50) NOT NULL,
- PRIMARY KEY CLUSTERED ([id] ASC),
- FOREIGN KEY ([pro_id]) REFERENCES [dbo].[Product] ([ProductID]),
- FOREIGN KEY ([cat_id]) REFERENCES [dbo].[Cart] ([id])
-);
-GO
 CREATE TABLE [dbo].[Orders](
  [id] [int]  NOT NULL,
  [u_id] [int] NULL,

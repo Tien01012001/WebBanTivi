@@ -12,6 +12,7 @@ public interface ProductService {
 	void insert(ProductModel product);
 	void edit(ProductModel product);
 	void delete(int id);
+	void deleteByCID(int cid);
 	List<ProductModel> getAllProduct();
 	ProductModel getTopProduct();
 	ProductModel getProductByID(int pid);

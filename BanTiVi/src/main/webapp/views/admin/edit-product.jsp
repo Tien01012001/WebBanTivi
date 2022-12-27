@@ -4,6 +4,7 @@
 
 
 <!-- /. NAV SIDE  -->
+<div class="container">
 <div id="page-wrapper">
 	<div id="page-inner">
 		<div class="row">
@@ -88,7 +89,7 @@
 	<!-- /. PAGE INNER  -->
 </div>
 <!-- /. PAGE WRAPPER  -->
-
+</div>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 

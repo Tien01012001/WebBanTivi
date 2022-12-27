@@ -20,32 +20,37 @@
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css">
-<div class="container" >
-<table id="tba" class="table table-striped table-bordered table-condensed"
+<div class="container">
+<table id="tbl" class="table table-striped table-bordered table-condensed"
 	style="width: 100%">
 	<thead>
 		<tr>
-			<th >STT</th>
-			<th >Tên Sản Phẩm</th>
-			<th >Giá tiền</th>
-			<th>Số lượng</th>
+			<th>STT</th>
+			<th>Tên Sản Phẩm</th>
+            <th>Giá tiền</th>
+            <th>Số lượng</th>
 		</tr>
 	</thead>
 	<tbody>
-
 		<c:forEach items="${orderItemList}" var="order" varStatus="STT">
 			<tr class="odd gradeX">
 				<td>${STT.index+1 }</td>
                 <td>${order.product.name}</td>
-				<td>${order.uintprice}</td>
-				<td>${order.quantity}</td>
+                <td>${order.uintprice}</td>
+                <td>${order.quantity}</td>
+
 			</tr>
 		</c:forEach>
-
 	</tbody>
+
 </table>
-<a href="<c:url value='/admin/order/list'/>"
-    				    class="btn btn-sm btn-primary"> Cancel</i></a>
  </div>
 
+<script>
+$('#tbl').DataTable({
+    dom: 'Bfrtip',
+    buttons: [
+        'copy', 'csv', 'excel', 'pdf', 'print'
+    ]
+});    </script>
 

@@ -4,6 +4,7 @@
 
 
 <!-- /. NAV SIDE  -->
+<div class="container">
 <div id="page-wrapper">
 	<div id="page-inner">
 		<div class="row">
@@ -19,7 +20,7 @@
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<div class="row">
-							<div class="col-md-6">
+							<div class="col-md-10">
 								<h3 style="text-align: center">Tài khoản:</h3>
 
 								<c:url value="/admin/account/edit" var="edit"></c:url>
@@ -50,8 +51,8 @@
 									<label>isAdmin(vui long nhap 0 hoặc 1):</label> <input type="text"
                                     		class="form-control" value="${account.isAdmin}" name="isAdmin" />
 									</div>
-                                    <div>
-                                    </div>
+
+                                   </br>
 
 
 									<button type="submit" class="btn btn-default" >Edit</button>
@@ -76,7 +77,7 @@
 	<!-- /. PAGE INNER  -->
 </div>
 <!-- /. PAGE WRAPPER  -->
-
+</div>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 

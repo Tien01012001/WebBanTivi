@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
-
+<div class="container">
 <form role="form" action="add" method="post"
 	enctype="multipart/form-data">
 	<div class="form-group">
@@ -20,6 +20,7 @@
 	<button type="submit" class="btn btn-default">Thêm</button>
 	<button  onclick="window.location.href='/BanHang/admin/home'" type="reset" class="btn btn-primary">Hủy</button>
 </form>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>

@@ -4,11 +4,12 @@
 
 
 <!-- /. NAV SIDE  -->
+<div class="container">
 <div id="page-wrapper">
 	<div id="page-inner">
 		<div class="row">
 			<div class="col-md-10">
-				<h2>Chỉnh sửa tài khoản</h2>
+				<h2>Thêm sản phẩm</h2>
 			</div>
 		</div>
 		<!-- /. ROW  -->
@@ -19,7 +20,7 @@
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<div id="logreg-forms" class="row">
-							<div class="col-md-6">
+							<div class="col-md-10">
 								<c:url value="/admin/product/add" var="add"></c:url>
 								<form role="form"  action="${add}" method="post"
 								<br />
@@ -90,7 +91,7 @@
 	<!-- /. PAGE INNER  -->
 </div>
 <!-- /. PAGE WRAPPER  -->
-
+</div>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 

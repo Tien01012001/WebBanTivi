@@ -6,7 +6,7 @@ import vn.iotstar.model.ProductModel;
 
 public interface ProductDao {
 	void delete(int id);
-
+	void deleteByCID(int cid);
 	void insert(ProductModel product);
 	void edit(ProductModel product);
 	int countALL();

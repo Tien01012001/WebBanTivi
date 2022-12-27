@@ -16,6 +16,7 @@ public class ProductServiceImpl implements ProductService {
 		
 		return productDao.countALL();
 	}
+
 	@Override
 	public int countCid(int cid) {
 		
@@ -29,6 +30,8 @@ public class ProductServiceImpl implements ProductService {
 	public void delete(int id) {
 		productDao.delete(id);
 	}
+
+	public void deleteByCID(int cid){ productDao.deleteByCID(cid);}
 	@Override
 	public List<ProductModel> getAllProduct() {
 		// TODO Auto-generated method stub
