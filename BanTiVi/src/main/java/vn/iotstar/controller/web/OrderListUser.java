@@ -1,9 +1,12 @@
 package vn.iotstar.controller.web;
 
 import vn.iotstar.model.AccountModel;
+import vn.iotstar.model.CategoryModel;
 import vn.iotstar.model.OrderModel;
+import vn.iotstar.service.CategoryService;
 import vn.iotstar.service.OrderService;
 import vn.iotstar.service.UserService;
+import vn.iotstar.service.impl.CategoryServiceImpl;
 import vn.iotstar.service.impl.OrderServiceImpl;
 import vn.iotstar.service.impl.UserServiceImpl;
 
@@ -21,14 +24,18 @@ import java.util.List;
 public class OrderListUser extends HttpServlet {
     OrderService orderService = new OrderServiceImpl();
     UserService userService = new UserServiceImpl();
+    CategoryService cateService = new CategoryServiceImpl();
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession httpSession = req.getSession();
         AccountModel user = (AccountModel) httpSession.getAttribute("acc");
 
+        List<CategoryModel> listC = cateService.getALLCategory();
         List<OrderModel> orderList = orderService.getAllByIdUser(user.getUid());
         req.setAttribute("orderList", orderList);
+        req.setAttribute("listcate", listC);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/views/list-order-user.jsp");
         dispatcher.forward(req, resp);
     }
