@@ -33,11 +33,11 @@
 											class="form-control" value="${category.name }" name="name" />
 									</div>
 
-									<input type="radio" id="postageyes" name="postage" value="Yes" checked/>
+									<input type="radio" id="postageyes" name="postage" value="Yes" />
 									Chèn link ảnh 
 									<br />
 									<input type="radio" id="postageno" name="postage"
-										value="No" /> Tải ảnh <br />
+										value="No" checked/> Tải ảnh <br />
 
 									<c:set var = "string1" value="${category.icon}"/>
 				<c:set var = "string2" value = "${fn:substring(string1, 0, 4)}" />
@@ -54,18 +54,13 @@
 											alt="">
 
 <br/>
-									<div class="form-group" id="anh" hidden="hidden">
+									<div class="form-group" id="anh">
 										 <label>Ảnh đại diện</label> <input id="inputicon" type="file"
-											name="icon" value="${category.icon }" accept="image/*" onchange="validateFileType()"/>
+											name="icons" value="${category.icon }" accept="image/*" onchange="validateFileType()"/>
 									</div>
 									<button type="submit" class="btn btn-default">Edit</button>
 									<button type="reset" class="btn btn-primary">Reset</button>
-									<div class="form-check">
-                                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                      <label class="form-check-label" for="flexRadioDefault1">
-                                        Default radio
-                                      </label>
-                                    </div>
+
 
 
 

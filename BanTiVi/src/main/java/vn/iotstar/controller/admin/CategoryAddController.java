@@ -46,11 +46,11 @@ public class CategoryAddController extends HttpServlet {
 			List<FileItem> items = servletFileUpload.parseRequest(req);
 			System.out.println(items);
 			for (FileItem item : items) {
-				if (item.getFieldName().equals("acname")) {
+				if (item.getFieldName().equals("cname")) {
 					category.setName(item.getString("UTF-8"));
-				} else if (item.getFieldName().equals("aimagelink")) {
+				} else if (item.getFieldName().equals("imagelink")) {
 					category.setIcon(item.getString());
-				} else if (item.getFieldName().equals("aicons")) {
+				} else if (item.getFieldName().equals("icons")) {
 					String originalFileName = item.getName();
 					int index = originalFileName.lastIndexOf(".");
 					String ext = originalFileName.substring(index + 1);

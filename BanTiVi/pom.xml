@@ -97,15 +97,6 @@
     <version>1.9.13</version>
 </dependency>
 <!-- end json -->
-<!-- Gson -->
-
-<dependency>
-    <groupId>com.google.code.gson</groupId>
-    <artifactId>gson</artifactId>
-    <version>2.8.6</version>
-</dependency>
-
-<!-- End Gson -->
 
 
 		<dependency>
