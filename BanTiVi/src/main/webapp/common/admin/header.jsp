@@ -65,17 +65,7 @@
       </c:otherwise>
 			</c:choose>
     </ul>
-    <form action="search" class="form-inline my-2 my-lg-0">
-                <div class="input-group input-group-sm">
-                    <input type="text" name="txt" value="" class="form-control" placeholder="Search...">
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-secondary btn-number">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-               
-    </form>
+
    
   </div>
 </nav>
