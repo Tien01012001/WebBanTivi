@@ -97,7 +97,7 @@ public class OrderController extends HttpServlet {
 						cartItem.getProduct(), id);
 				orderItemservice.insert(orderItem);
 
-				productService.updateStoke((cartItem.getProduct().getStoke()-cartItem.getQuantity()),cartItem.getProduct().getId());
+				productService.updateAmountAndStoke((cartItem.getProduct().getAmount()+cartItem.getQuantity()),(cartItem.getProduct().getStoke()-cartItem.getQuantity()),cartItem.getProduct().getId());
 			}
 
 

@@ -33,7 +33,7 @@
                             <td>${map.value.product.name }</td>
                             <td >${map.value.product.stoke }</td>
 
-                            <td>${map.value.quantity }</td>
+                            <td class="text-center">${map.value.quantity }</td>
                             
                             
                             <td class="text-right shop-red">${map.value.product.price * map.value.quantity }</</td>

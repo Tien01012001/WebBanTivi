@@ -95,5 +95,5 @@ public class ProductServiceImpl implements ProductService {
 	public void insert(ProductModel product) {
 		productDao.insert(product);
 	}
-	public void updateStoke(int stoke,int id){ productDao.updateStoke(stoke,id);}
+	public void updateAmountAndStoke(int amount,int stoke,int id){ productDao.updateAmountAndStoke(amount,stoke,id);}
 }

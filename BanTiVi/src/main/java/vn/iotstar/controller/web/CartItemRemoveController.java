@@ -35,6 +35,6 @@ public class CartItemRemoveController extends HttpServlet {
 			// Cap nhat lai Session
 			httpSession.setAttribute("cart", map);
 		}
-		resp.sendRedirect(req.getContextPath() + "/member/cart");
+		resp.sendRedirect(req.getContextPath() + "/cart");
 	}
 }

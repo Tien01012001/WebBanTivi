@@ -22,5 +22,5 @@ public interface ProductDao {
 	List<ProductModel> pagingProductByCID(String cid, int index);
 	List<ProductModel> getTop3Product();
 	List<ProductModel> getNext3Product(int amount);
-	void updateStoke(int stoke,int id);
+	void updateAmountAndStoke(int amount,int stoke,int id);
 }

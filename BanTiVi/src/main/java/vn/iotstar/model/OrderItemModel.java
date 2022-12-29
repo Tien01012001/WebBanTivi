@@ -10,7 +10,8 @@ public class OrderItemModel {
 	public OrderItemModel() {
 		super();
 	}
-	
+
+
 	public OrderItemModel(int quantity, double uintprice, ProductModel product, int order_id) {
 		super();
 		this.Quantity = quantity;

@@ -532,14 +532,15 @@ public class ProductDaoImpl implements ProductDao {
 		}
 	}
 
-	public void updateStoke(int stoke,int id){
-		String sql = "UPDATE Product SET Stoke = ? WHERE ProductID = ?";
+	public void updateAmountAndStoke(int amount,int stoke,int id){
+		String sql = "UPDATE Product SET Amount=?,Stoke = ? WHERE ProductID = ?";
 
 		try {
 			Connection con = new DBConnect().getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1,stoke);
-			ps.setInt(2, id);
+			ps.setInt(1,amount);
+			ps.setInt(2,stoke);
+			ps.setInt(3, id);
 			ps.executeUpdate();
 			// Lấy ResultSet
 
