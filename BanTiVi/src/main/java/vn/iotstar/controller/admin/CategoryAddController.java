@@ -51,11 +51,8 @@ public class CategoryAddController extends HttpServlet {
 					category.setIcon(item.getString());
 				} else if (item.getFieldName().equals("icons")) {
 					String originalFileName = item.getName();
-					System.out.println(originalFileName);
 					int index = originalFileName.lastIndexOf(".");
-					System.out.println(index);
 					String ext = originalFileName.substring(index + 1);
-					System.out.println(ext);
 					String fileName = System.currentTimeMillis() + "." + ext;
 					File file = new File(Constant.DIR + "/category/" + fileName);
 					item.write(file);

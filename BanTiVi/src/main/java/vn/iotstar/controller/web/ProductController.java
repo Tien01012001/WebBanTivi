@@ -36,7 +36,6 @@ public class ProductController extends HttpServlet {
 		String cid = req.getParameter("cid");
 		String indexPage = req.getParameter("index");
 		// khởi tạo trang đầu
-		System.out.println(indexPage);
 		if (indexPage == null || indexPage == "") {
 			indexPage = "1";
 		}
