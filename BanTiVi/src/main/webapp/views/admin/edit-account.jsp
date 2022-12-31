@@ -24,37 +24,27 @@
 								<h3 style="text-align: center">Tài khoản:</h3>
 
 								<c:url value="/admin/account/edit" var="edit"></c:url>
-								<form role="form"  action="${edit}" method="post"
-								<br />
+								<form role="form"  action="${edit}" method="post" >
 								    <div>
-									    <input name="uid" type="hidden" value="${account.uid}" type="hidden">
+									    <input name="uid" type="hidden" value="${account.uid}" type="hidden" />
 									</div>
-                                <br />
+                               
 									<div class="form-group" >
-										<label >Tên đăng nhập:</label> <input type="text"
-											class="form-control" value="${account.user}" name="user" />
+										<label >Tên đăng nhập:</label> 
+										<input type="text" class="form-control" value="${account.user}" name="user" />
 									</div>
 
                                     <div>
                                     </div>
 									<div class="form-group">
-									<label >Mật khẩu:</label> <input type="text"
-                                    		class="form-control" value="${account.pass}" name="pass" />
+										<label >Mật khẩu:</label> 
+										<input type="text" class="form-control" value="${account.pass}" name="pass" />
 									</div>
 
                                     <div>
-                                    </div>
-
-                                    <div>
-                                    </div>
-                                    <div>
-									<label>isAdmin(vui long nhap 0 hoặc 1):</label> <input type="text"
-                                    		class="form-control" value="${account.isAdmin}" name="isAdmin" />
-									</div>
-
-                                   </br>
-
-
+										<label>isAdmin(vui long nhap 0 hoặc 1):</label> 
+										<input type="text" class="form-control" value="${account.isAdmin}" name="isAdmin" />
+					                </div>
 									<button type="submit" class="btn btn-default" >Edit</button>
 									<button type="reset" class="btn btn-primary">Reset</button>
 

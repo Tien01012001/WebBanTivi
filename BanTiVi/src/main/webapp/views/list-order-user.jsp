@@ -64,7 +64,7 @@
 				</c:choose>
 
 				<a href="<c:url value='/orderdetail?id=${order.ID}'/>"
-                    class="btn btn-sm btn-info"> <i class="fa fa-info""></i></a></td>
+                    class="btn btn-sm btn-info"> <i class="fa fa-info"></i></a></td>
 
 
 			</tr>

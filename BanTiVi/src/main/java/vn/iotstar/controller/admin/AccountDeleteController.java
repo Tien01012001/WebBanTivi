@@ -18,7 +18,6 @@ public class AccountDeleteController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String uid = req.getParameter("id");
         userService.delete(Integer.parseInt(uid));
-        System.out.println(uid);
         resp.sendRedirect(req.getContextPath() + "/admin/account/list");
 
     }

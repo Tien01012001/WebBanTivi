@@ -22,7 +22,7 @@
 						<div id="logreg-forms" class="row">
 							<div class="col-md-10">
 								<c:url value="/admin/product/add" var="add"></c:url>
-								<form role="form"  action="${add}" method="post"
+								<form role="form"  action="${add}" method="post" >
 								<br />
 								<br />
 
@@ -65,12 +65,12 @@
                                     		class="form-control"  name="amount" required autofocus/>
 									</div>
 									<div class="form-group">
-									<label>Stoke:</label> <input type="text"
-                                    		class="form-control"  name="stoke" required autofocus/>
+										<label>Stoke:</label> 
+										<input type="text" class="form-control"  name="stoke" required autofocus/>
 									</div>
                                     <div>
                                     </div>
-									<button type="submit" class="btn btn-default" >Add</button>
+									<button type="submit" class="btn btn-default">Add</button>
 									<button type="reset" class="btn btn-primary">Reset</button>
 								</form>
 

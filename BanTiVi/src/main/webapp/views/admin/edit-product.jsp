@@ -22,11 +22,11 @@
 						<div class="row">
 							<div class="col-md-6">
 								<c:url value="/admin/product/edit" var="edit"></c:url>
-								<form role="form"  action="${edit}" method="post"
+								<form role="form"  action="${edit}" method="post" >
 								<br />
 								<br />
 								    <div>
-									    <input name="id" type="hidden" value="${product.id}" type="hidden">
+									    <input name="id" type="hidden" value="${product.id}" type="hidden" />
 									</div>
 									<div class="form-group" >
 										<label >Tên sản phẩm:</label> <input type="text"
