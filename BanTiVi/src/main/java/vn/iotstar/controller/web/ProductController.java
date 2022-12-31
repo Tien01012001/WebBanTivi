@@ -36,9 +36,11 @@ public class ProductController extends HttpServlet {
 		String cid = req.getParameter("cid");
 		String indexPage = req.getParameter("index");
 		// khởi tạo trang đầu
-		if (indexPage == null) {
+		System.out.println(indexPage);
+		if (indexPage == null || indexPage == "") {
 			indexPage = "1";
 		}
+		
 		int index = Integer.parseInt(indexPage);
 		int cid1 = Integer.parseInt(cid);
 		// Bước 2: Sử dụng đối tượng list để chứa danh sách từ ProductDAO

@@ -25,9 +25,18 @@
 				</div>
 				<ul class="list-group category_block">
 					<c:forEach items="${listcate}" var="o">
-						<c:url value="${o.icon}" var="imgUrl"></c:url>
+					    <c:set var = "string1" value="${o.icon}"/>
+                        <c:set var = "string2" value = "${fn:substring(string1, 0, 4)}" />
+                        <c:choose>
+                                 <c:when test = "${string2 =='cate'}">
+                                    <c:url value="/image?fname=${o.icon}" var="imgUrl"></c:url>
+                                 </c:when>
+                                 <c:otherwise>
+                                    <c:url value="${o.icon}" var="imgUrl"></c:url>
+                                 </c:otherwise>
+                        </c:choose>
 						<li class="list-group-item ${tagactive == o.id ? "active":""}"><a
-							href="product?cid=${o.id}&index=${tag}"> <img height="30"
+							href="product?cid=${o.id}&index=1"> <img height="30"
 								width="30" src="${imgUrl}" /> ${o.name}
 						</a></li>
 					</c:forEach>

@@ -44,7 +44,6 @@ public class CategoryAddController extends HttpServlet {
 			resp.setCharacterEncoding("UTF-8");
 			req.setCharacterEncoding("UTF-8");
 			List<FileItem> items = servletFileUpload.parseRequest(req);
-			System.out.println(items);
 			for (FileItem item : items) {
 				if (item.getFieldName().equals("cname")) {
 					category.setName(item.getString("UTF-8"));
@@ -52,8 +51,11 @@ public class CategoryAddController extends HttpServlet {
 					category.setIcon(item.getString());
 				} else if (item.getFieldName().equals("icons")) {
 					String originalFileName = item.getName();
+					System.out.println(originalFileName);
 					int index = originalFileName.lastIndexOf(".");
+					System.out.println(index);
 					String ext = originalFileName.substring(index + 1);
+					System.out.println(ext);
 					String fileName = System.currentTimeMillis() + "." + ext;
 					File file = new File(Constant.DIR + "/category/" + fileName);
 					item.write(file);
