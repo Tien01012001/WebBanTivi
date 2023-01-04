@@ -56,7 +56,7 @@
                                         <label>CategoryID:</label>
                                         <select name="categoryID" id="categoryID">
 									        <c:forEach items="${cateList}" var="cate">
-									               <option value="${cate.id}">${cate.id}</option>
+									               <option value="${cate.id}">${cate.name}</option>
                                             </c:forEach>
                                         </select>
 									</div>

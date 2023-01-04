@@ -56,7 +56,7 @@ public class CategoryEditController extends HttpServlet {
 					category.setName(item.getString("UTF-8"));
 				}else if (item.getFieldName().equals("imagelink")) {
 						category.setIcon(item.getString());
-				} else if (item.getFieldName().equals("icons")) {
+				} else if (item.getFieldName().equals("icons")) {	
 					if (item.getSize() > 0) {// neu co file d
 					String originalFileName = item.getName();
 					int index = originalFileName.lastIndexOf(".");
@@ -67,7 +67,6 @@ public class CategoryEditController extends HttpServlet {
 					category.setIcon("category/"+fileName);
 					} else {
 						category.setIcon(null);
-						System.out.println("toang");
 					}
 				}
 			}

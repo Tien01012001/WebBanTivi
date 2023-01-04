@@ -35,7 +35,6 @@ public class AccountEditController extends HttpServlet {
 
 
         Integer uid = Integer.parseInt(req.getParameter("uid"));
-
         String username = req.getParameter("user");
         String password = req.getParameter("pass");
         Integer isAdmin = Integer.parseInt(req.getParameter("isAdmin"));
@@ -44,7 +43,6 @@ public class AccountEditController extends HttpServlet {
         account.setUser(username);
         account.setPass(password);
         account.setIsAdmin(isAdmin);
-
         userService.edit(account);
         resp.sendRedirect(req.getContextPath() + "/admin/account/list");
 

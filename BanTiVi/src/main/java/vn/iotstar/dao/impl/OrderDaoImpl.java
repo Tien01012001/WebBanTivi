@@ -115,6 +115,7 @@ public class OrderDaoImpl implements OrderDao {
 		try {
 			Connection con = new DBConnect().getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
+			System.out.println(status);
 			ps.setString(1,status);
 			ps.setInt(2, id);
 			ps.executeUpdate();

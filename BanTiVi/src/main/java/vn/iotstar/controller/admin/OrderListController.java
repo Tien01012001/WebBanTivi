@@ -23,8 +23,11 @@ public class OrderListController extends HttpServlet {
     UserService userService = new UserServiceImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    	resp.setContentType("text/html");
+        resp.setCharacterEncoding("UTF-8");
+        req.setCharacterEncoding("UTF-8");
         List<OrderModel> orderList = orderService.getAll();
-
+        
 
         req.setAttribute("orderList", orderList);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/views/admin/list-order.jsp");
