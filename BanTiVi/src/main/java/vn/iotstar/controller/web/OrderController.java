@@ -81,7 +81,7 @@ public class OrderController extends HttpServlet {
 
 			for (Integer key : set) {
 				CartItemModel cartItem = map.get(key);
-				total = total + cartItem.getUnitPrice();
+				total = total + cartItem.getUnitPrice()*cartItem.getQuantity();
 			}
 			total = total + shipService.getShip(diachinhan);
 
@@ -92,7 +92,6 @@ public class OrderController extends HttpServlet {
 
 			for (Integer key : set) {
 				CartItemModel cartItem = map.get(key);
-				total = total + cartItem.getUnitPrice();
 				OrderItemModel orderItem = new OrderItemModel(cartItem.getQuantity(), cartItem.getUnitPrice(),
 						cartItem.getProduct(), id);
 				orderItemservice.insert(orderItem);
